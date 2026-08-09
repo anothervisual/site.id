@@ -1780,6 +1780,97 @@
             </div>
 
         </div>
+        
+
+        <span class="section-tag price-section-title">
+            01. Paket Event
+        </span>
+
+        <div class="price-grid">
+
+            <div class="price-card">
+
+                <h3>
+                    Basic
+                </h3>
+
+                <div class="price-amount">
+                    Rp 900.000
+                </div>
+
+                <ul class="price-features">
+
+                    <li>
+                        1-2 Fotografer Profesional
+                    </li>
+
+                    <li>
+                        Full Color Grading & Editing
+                    </li>
+
+                    <li>
+                        Durasi Fleksibel (Mengikuti Klien)
+                    </li>
+
+                    <li>
+                        Pengiriman via Google Drive
+                    </li>
+
+                </ul>
+
+                <a
+                    href="https://wa.me/6287765829615"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-outline">
+                    Pilih Paket
+                </a>
+
+            </div>
+
+
+            <div class="price-card premium">
+
+                <h3>
+                    Premium
+                </h3>
+
+                <div class="price-amount">
+                    Rp 2.000.000
+                </div>
+
+                <ul class="price-features">
+
+                    <li>
+                        1 Fotografer & 1 Videografer
+                    </li>
+
+                    <li>
+                        Edit Foto + Video Sinematik (Max 5 Menit)
+                    </li>
+
+                    <li>
+                        Durasi Fleksibel (Mengikuti Klien)
+                    </li>
+
+                    <li>
+                        Pengiriman via Google Drive
+                    </li>
+
+                </ul>
+
+                <a
+                    href="https://wa.me/6287765829615"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-solid">
+                    Pilih Paket
+                </a>
+
+            </div>
+
+        </div>
+
 
     </section>
 
