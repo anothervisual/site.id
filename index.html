@@ -4,10 +4,40 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="aZ11em3-JRRCzP_o0uWrFt6r-3j8xv25XTx3dU91hfc">
 <title>Another Visual</title>
-<style>html,body{margin:0;min-height:100%;background:#080808;color:#fff}#loading{min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;color:#aaa}.nav{position:fixed;top:0;left:0;right:0;z-index:99;background:rgba(8,8,8,.9);padding:18px 24px}.nav a{color:#fff;text-decoration:none;margin-right:24px}.content{padding-top:80px}video{display:block;width:100%;max-height:78vh;object-fit:contain;background:#000;border-radius:16px}.video-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px;max-width:1200px;margin:auto}.video-card{min-width:0}@media(max-width:800px){.video-grid{grid-template-columns:1fr;gap:18px}}</style>
-</head><body>
-<nav class="nav"><a href="index.html">Beranda</a><a href="pricelist.html">Pricelist</a></nav>
-<div id="loading" class="content">Memuat Another Visual…</div>
+<style>
+html,body{margin:0;min-height:100%;background:#080808;color:#fff}#loading{min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;color:#aaa}.site-nav{position:sticky;top:0;z-index:9999;background:rgba(8,8,8,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1);padding:16px 24px;text-align:center}.site-nav a{display:inline-block;color:#fff;text-decoration:none;padding:9px 16px;margin:0 4px;border-radius:9px}.site-nav a:hover{background:#1a1a1a}.video-section{max-width:1200px;margin:0 auto;padding:90px 24px}.video-section h2{font-size:clamp(32px,5vw,52px);margin:0 0 10px}.video-section>p{color:#aaa;margin:0 0 30px}.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.video-card{background:#111;border:1px solid rgba(255,255,255,.1);border-radius:18px;overflow:hidden}.video-card video{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#000}.video-info{padding:18px 20px}.video-info small{color:#999;text-transform:uppercase;letter-spacing:1px}.video-info h3{margin:5px 0 0;font-size:21px}.video-fallback{display:block;margin-top:10px;color:#aaa;font-size:13px}.video-fallback:hover{color:#fff}@media(max-width:800px){.video-grid{grid-template-columns:1fr;gap:18px}.video-section{padding:60px 16px}}
+</style>
+</head>
+<body>
+<div id="loading">Memuat Another Visual…</div>
 <script>
-(async function(){try{const r=await fetch('https://raw.githubusercontent.com/anothervisual/site.id/main/README.md',{cache:'no-store'});if(!r.ok)throw Error();let html=await r.text();html=html.replaceAll('video/TEASER%20TOCUP31.mp4','video/EVENT/TEASER%20TOCUP31.mp4').replaceAll('video/TEASER TOCUP31.mp4','video/EVENT/TEASER%20TOCUP31.mp4').replaceAll('video/Putra%20Sekolah%20Pertiwi%20Abhilsa%20%281%29.mov','video/PUTRA/Putra%20Sekolah%20Pertiwi%20Abhilsa%20%281%29.mov').replaceAll('video/Putra Sekolah Pertiwi Abhilsa (1).mov','video/PUTRA/Putra%20Sekolah%20Pertiwi%20Abhilsa%20%281%29.mov');document.open();document.write(html);document.close()}catch(e){document.getElementById('loading').textContent='Website gagal dimuat. Silakan refresh halaman.'}})();
-</script></body></html>
+(async function(){
+ try{
+  const r=await fetch('https://raw.githubusercontent.com/anothervisual/site.id/main/README.md',{cache:'no-store'});
+  if(!r.ok)throw Error('README gagal dimuat');
+  const parser=new DOMParser();
+  const doc=parser.parseFromString(await r.text(),'text/html');
+  const price=doc.querySelector('#pricelist');
+  if(price)price.remove();
+  const oldNav=doc.querySelector('.site-nav');
+  if(oldNav)oldNav.remove();
+  const nav=doc.createElement('nav');
+  nav.className='site-nav';
+  nav.innerHTML='<a href="index.html">Beranda</a><a href="pricelist.html">Pricelist</a>';
+  doc.body.prepend(nav);
+  const section=doc.createElement('section');
+  section.className='video-section';
+  section.id='videos';
+  section.innerHTML=`<h2>Video</h2><p>Selected video dari Another Visual.</p><div class="video-grid">
+   <article class="video-card"><video controls playsinline preload="metadata"><source src="video/EVENT/TEASER%20TOCUP31.mp4" type="video/mp4">Browser tidak mendukung pemutaran video.</video><div class="video-info"><small>Event</small><h3>TEASER TOCUP31</h3><a class="video-fallback" href="video/EVENT/TEASER%20TOCUP31.mp4">Buka video langsung</a></div></article>
+   <article class="video-card"><video controls playsinline preload="metadata"><source src="video/PUTRA/Putra%20Sekolah%20Pertiwi%20Abhilsa%20%281%29.mov" type="video/quicktime">Browser tidak mendukung format MOV ini.</video><div class="video-info"><small>Pensi / Putra</small><h3>Putra Sekolah Pertiwi Abhilsa</h3><a class="video-fallback" href="video/PUTRA/Putra%20Sekolah%20Pertiwi%20Abhilsa%20%281%29.mov">Buka file video langsung</a></div></article>
+  </div>`;
+  const footer=doc.querySelector('footer');
+  if(footer)footer.before(section);else doc.body.appendChild(section);
+  doc.head.insertAdjacentHTML('beforeend','<base href="https://anothervisual.github.io/site.id/">');
+  document.open();document.write('<!DOCTYPE html>'+doc.documentElement.outerHTML);document.close();
+ }catch(e){document.getElementById('loading').textContent='Website gagal dimuat. Silakan refresh halaman.';console.error(e)}
+})();
+</script>
+</body>
+</html>
