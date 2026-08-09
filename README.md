@@ -1036,18 +1036,6 @@
                 </li>
 
                 <li>
-                    <a href="#video">
-                        Video
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#video-pensi">
-                        Pensi
-                    </a>
-                </li>
-
-                <li>
                     <a href="#pricelist">
                         Pricelist
                     </a>
