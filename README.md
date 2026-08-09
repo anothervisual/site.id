@@ -1,10 +1,9 @@
-google-site-verification: googlee846edb394942c52.html
-
 
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="aZ11em3-JRRCzPo_0uWrFt6r-3j8xv25XTx3dU91hfc" />
 
     <meta name="description" content="Another Visual - Photography & Videography">
     <meta name="theme-color" content="#0a0a0a">
