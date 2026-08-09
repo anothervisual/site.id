@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEASER TOCUP31</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .page {
+      width: 100%;
+      max-width: 1400px;
+    }
+    h1 {
+      margin: 0 0 18px;
+      text-align: center;
+      font-size: clamp(20px, 3vw, 34px);
+      letter-spacing: 1px;
+    }
+    .video-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.6);
+    }
+    video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+    @media (max-width: 700px) {
+      body { padding: 10px; }
+      .video-wrap { border-radius: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>TEASER TOCUP31</h1>
+    <div class="video-wrap">
+      <video controls autoplay muted loop playsinline preload="metadata">
+        <source src="video/EVENT/TEASER%20TOCUP31.mp4" type="video/mp4">
+        Browser kamu tidak mendukung pemutaran video.
+      </video>
+    </div>
+  </main>
+</body>
+</html>
