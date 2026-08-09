@@ -352,7 +352,7 @@
         .next-btn { right: -70px; }
         .close-modal { position: absolute; top: -60px; right: 0; color: #fff; font-size: 40px; cursor: pointer; font-family: 'Outfit'; }
 
-        /* PRICELIST */
+        /* PRICELIST (PERBESAR & CENTER) */
         .price-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -426,7 +426,7 @@
         .contact-card a { color: var(--text-muted); text-decoration: none; font-size: 18px; transition: var(--transition); }
         .contact-card a:hover { color: var(--text-main); }
 
-        /* FOOTER */
+        /* FOOTER (IKON SOSMED DI BAWAH) */
         footer {
             padding: 80px 5% 50px 5%;
             text-align: center;
@@ -539,42 +539,76 @@
 
         <div class="masonry-grid">
             <div class="port-item wedding" onclick="openSlider([
-                'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000',
-                'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1000'
+                'https://lh3.googleusercontent.com/d/1K5JYuw4FpqSI9NEduRvZNm_8eJRS_Mr2',
+                'https://lh3.googleusercontent.com/d/1sJJIfzNtLeDnY69v5Vw9it6EMWJzScWO',
+                'https://lh3.googleusercontent.com/d/18V0VTAzCCy9rw8Pkyy3jwVr06jbwqXjE',
+                'https://lh3.googleusercontent.com/d/18AiExWPI4x61GapsGDVEBAq6v3mhiUvw',
+                'https://lh3.googleusercontent.com/d/1jKrtiykv5AEAyyIixWZJIblm4kwSbvj3',
+                'https://lh3.googleusercontent.com/d/1AG35QW1gkHG_ysKrIjzmgwSdZ-WDJE_W',
+                'https://lh3.googleusercontent.com/d/1VikQ2MtDl94PstxWeOPGFGZZBA76wRAJ',
+                'https://lh3.googleusercontent.com/d/18UYnUMDsVlxNF5CD3oRa7ShpY560WHPY',
+                'https://lh3.googleusercontent.com/d/12_urvrE4195fyQmf1RhEv3-ToTvxv6l5',
+                'https://lh3.googleusercontent.com/d/1ffcvFRZDPaoMzVLIgqm3GgDp83qRak6v'
             ], 'Wedding Falaq & Cindy')">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000" alt="Wedding Falaq & Cindy">
+                <img src="https://lh3.googleusercontent.com/d/1K5JYuw4FpqSI9NEduRvZNm_8eJRS_Mr2" alt="Wedding Falaq & Cindy">
                 <div class="port-overlay">
-                    <div class="port-cat">Wedding (2 Foto)</div>
+                    <div class="port-cat">Wedding (10 Foto)</div>
                     <div class="port-title">Falaq & Cindy</div>
                 </div>
             </div>
 
             <div class="port-item engagement" onclick="openSlider([
-                'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1000'
+                'https://lh3.googleusercontent.com/d/1CSJdaeY-POpOhoytFeI4PyPvCc6_43Jk',
+                'https://lh3.googleusercontent.com/d/1RZIXo9bAFTMbIv327LqCBZZys3No0Jop',
+                'https://lh3.googleusercontent.com/d/16RB0mGvb4YMqixSaT5ugndThBWce_IP4',
+                'https://lh3.googleusercontent.com/d/1pgDLZcUJxZ5fiGv4EadaWnQyigXkrLmc',
+                'https://lh3.googleusercontent.com/d/1ul39oBgor5kz0XAVGsM0vEPVOcfrKVv9',
+                'https://lh3.googleusercontent.com/d/1N-vITNSioYPnd2WtIzGNU8BDtiHVtGz7',
+                'https://lh3.googleusercontent.com/d/1JLmj7thqafLvTXMTqGZXCLMx5mo1gtpm',
+                'https://lh3.googleusercontent.com/d/1aVgL_GPfg2adk_RN1UYLaL1vM1wkZ8iw',
+                'https://lh3.googleusercontent.com/d/1bl36KWAmRwiRCaqQicr1xZhBOc86RcwO',
+                'https://lh3.googleusercontent.com/d/17yN3ucaM5EtI46O7e8fGwdWyKxfylyCW',
+                'https://lh3.googleusercontent.com/d/1boUj5TLrYIWDkrcgW8AQsTghgnke36rk',
+                'https://lh3.googleusercontent.com/d/1UmCat8QQcEtkDr2KyzhM0yWys7l7LDkc',
+                'https://lh3.googleusercontent.com/d/19I127-vR7AFi6OKdj2vFYBLA6DJofGMU',
+                'https://lh3.googleusercontent.com/d/1V6GRE0pDTMDO0aAtyE6vj7r2w-FJXHes',
+                'https://lh3.googleusercontent.com/d/1Ui7W4zjre4TtivvXq2NDbsyw3gTqqIhC'
             ], 'Engagement Fikry & Reny')">
-                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1000" alt="Engagement Fikry & Reny">
+                <img src="https://lh3.googleusercontent.com/d/1CSJdaeY-POpOhoytFeI4PyPvCc6_43Jk" alt="Engagement Fikry & Reny">
                 <div class="port-overlay">
-                    <div class="port-cat">Engagement (1 Foto)</div>
+                    <div class="port-cat">Engagement (15 Foto)</div>
                     <div class="port-title">Fikry & Reny</div>
                 </div>
             </div>
 
             <div class="port-item wisuda" onclick="openSlider([
-                'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000'
+                'https://lh3.googleusercontent.com/d/1tdANeaA_DLSrfHtAXZQQEDzNckCwCl_u',
+                'https://lh3.googleusercontent.com/d/1ANX4TlyLrA2rg4es-1twvUenPk2xD8ha',
+                'https://lh3.googleusercontent.com/d/1L9HRUY0fNw6iAVpeb3TofmZWORZY82so',
+                'https://lh3.googleusercontent.com/d/1qNz-6khAoXYFkU-cQZjn8pYdT9MIRfPM',
+                'https://lh3.googleusercontent.com/d/1X4687Zb8Zos-tGLzKB44nmIBlZeBrR9_',
+                'https://lh3.googleusercontent.com/d/1CTqP6v3eLVrPBklcaRW7sttGg4_QwgCx',
+                'https://lh3.googleusercontent.com/d/1sPew-WXRoUgqJr-7rJXoqHli882oFJi1'
             ], 'Wisuda Reny Riani')">
-                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000" alt="Wisuda Reny Riani">
+                <img src="https://lh3.googleusercontent.com/d/1tdANeaA_DLSrfHtAXZQQEDzNckCwCl_u" alt="Wisuda Reny Riani">
                 <div class="port-overlay">
-                    <div class="port-cat">Wisuda (1 Foto)</div>
+                    <div class="port-cat">Wisuda (7 Foto)</div>
                     <div class="port-title">Reny Riani</div>
                 </div>
             </div>
 
             <div class="port-item event" onclick="openSlider([
-                'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000'
-            ], 'Corporate Event')">
-                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000" alt="Corporate Event">
+                'https://lh3.googleusercontent.com/d/1zm6ILIXa8mNLJ5z2Y-J-zN1JUZzmON6w',
+                'https://lh3.googleusercontent.com/d/1_axQ1oATs8QwUrEDC56LEWqSs5cwa5LA',
+                'https://lh3.googleusercontent.com/d/1k5xQXFot-YZCUz8_3JCm_UTj2gaaFd_Y',
+                'https://lh3.googleusercontent.com/d/1rLXnbHyq6fo_bcscrBcXqjiXNjQ9dcYN',
+                'https://lh3.googleusercontent.com/d/1zkjFPSBp0x4keMEPfFJv0tGuRjHae2GL',
+                'https://lh3.googleusercontent.com/d/1cWtB847VpSlCIG_KqRce9I6_5ql_TU5O',
+                'https://lh3.googleusercontent.com/d/1fT-R800YeD44qZNZnl-KKq6qPQkgs39p'
+            ], 'Corporate - Jalan Santai Kemerdekaan 2025')">
+                <img src="https://lh3.googleusercontent.com/d/1zm6ILIXa8mNLJ5z2Y-J-zN1JUZzmON6w" alt="Corporate Event">
                 <div class="port-overlay">
-                    <div class="port-cat">Corporate Event (1 Foto)</div>
+                    <div class="port-cat">Corporate Event (7 Foto)</div>
                     <div class="port-title">Jalan Santai 2025</div>
                 </div>
             </div>
@@ -697,16 +731,17 @@
         <div class="bento-card about-layout">
             <div class="founder-text">
                 <h3>PT Another Visual</h3>
-                <h4>Halo semuanya</h4>
-                <h4>Perkenalkan saya Alif Nur Hidayat selaku Founder dari PT Another Visual</h4>
-                <p>Saya mewakili tim dan pendiri PT Another Visual ingin mengucapkan terima kasih sebesar-besarnya kepada seluruh klien, mitra, kru, dan semua pihak yang telah mempercayakan momen berharganya kepada kami.</p>
-                <p>Bagi kami, PT Another Visual bukan hanya tentang foto, video, atau produksi visual. Kami percaya setiap event punya cerita, setiap momen punya makna, dan tugas kami adalah mengabadikannya dengan cara terbaik agar bisa terus dikenang.</p>
-                <p>Perjalanan kami sampai hari ini tentunya tidak mudah. Namun berkat dukungan dan kepercayaan dari kalian semua, PT Another Visual terus berkembang menjadi tim kreatif yang selalu ingin memberikan hasil terbaik, profesional, dan penuh dedikasi.</p>
-                <p>Semoga ke depannya PT Another Visual bisa terus hadir, berkarya, dan menjadi bagian dari lebih banyak cerita luar biasa lainnya. Terima kasih sudah menjadi bagian dari perjalanan kami.</p>
+                <h4>Halo semua nya</h4>
+                     <h4>Perkenal kan saya  Alif Nur Hidayat saya selaku Founder dari PT Another Visual</h4>
+<p>Saya mewakili tim dan pendiri PT Another Visual ingin mengucapkan terima kasih sebesar-besarnya kepada seluruh klien, mitra, kru, dan semua pihak yang telah mempercayakan momen berharganya kepada kami.</p>
+<p>Bagi kami, PT Another Visual bukan hanya tentang foto, video, atau produksi visual. Kami percaya setiap event punya cerita, setiap momen punya makna, dan tugas kami adalah mengabadikannya dengan cara terbaik agar bisa terus dikenang.</p>
+<p>Perjalanan kami sampai hari ini tentunya tidak mudah. Namun berkat dukungan dan kepercayaan dari kalian semua, PT Another Visual terus berkembang menjadi tim kreatif yang selalu ingin memberikan hasil terbaik, profesional, dan penuh dedikasi.</p>
+<p>Dari tahap pra-produksi hingga hasil akhir yang dapat dinikmati bersama, setiap proses dikerjakan dengan dedikasi penuh. Tanpa kerja sama, konsistensi, dan semangat solid dari tim, pencapaian ini mustahil terwujud.</p>
+<p>Semoga ke depannya PT Another Visual bisa terus hadir, berkarya, dan menjadi bagian dari lebih banyak cerita luar biasa lainnya. Terima kasih sudah menjadi bagian dari perjalanan kami.</p>
+<p>Salam hangat,<br><strong>Alif Nur Hidayat</strong><br>Pendiri PT Another Visual</p>
                 <p style="margin-top: 30px; font-weight: 600; color: #fff;">Salam hangat,<br><span style="color: var(--text-muted); font-weight: 400;">Alif Nur Hidayat — Founder PT Another Visual</span></p>
             </div>
-            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800'); border-radius: var(--radius-md); background-size: cover; background-position: center; min-height: 300px;"></div>
-        </div>
+            <div class="card-image" style="background-image: url('https://lh3.googleusercontent.com/d/1XCVRVaa9RkMXH04tVXUSDGJZN92wRSL9'); border-radius: var(--radius-md); background-size: cover; background-position: center; min-height: 300px;"></div>
     </section>
 
     <section id="page-contact" class="page">
@@ -739,25 +774,32 @@
             <a href="https://instagram.com/another_visual.id" class="social-icon-btn" target="_blank" aria-label="Instagram">
                 <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
+            <a href="https://wa.me/6287765829615" class="social-icon-btn" target="_blank" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </a>
+            <a href="mailto:anothervisualjakarta@gmail.com" class="social-icon-btn" target="_blank" aria-label="Email">
+                <svg viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.728v15.441h24v-15.441l-12 9.728z"/></svg>
+            </a>
         </div>
-        <div class="copyright">© 2026 PT Another Visual. All rights reserved.</div>
+
+        <div class="copyright">© 2026 PT Another Visual. Berbasis di Jakarta.</div>
     </footer>
 
     <script>
-        let currentGallery = [];
-        let currentIndex = 0;
-
         function navTo(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(sec => sec.classList.remove('active'));
             document.getElementById('page-' + pageId).classList.add('active');
+            
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
             document.getElementById('nav-' + pageId).classList.add('active');
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function filterItems(category) {
-            document.querySelectorAll('.folder-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.folder-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
+            
             document.querySelectorAll('.port-item').forEach(item => {
                 if (category === 'all' || item.classList.contains(category)) {
                     item.style.display = 'block';
@@ -767,24 +809,38 @@
             });
         }
 
-        function openSlider(images, clientName) {
-            currentGallery = images;
+        let currentImages = [];
+        let currentIndex = 0;
+        let currentClientName = "";
+
+        function openSlider(imagesArray, clientName) {
+            currentImages = imagesArray;
             currentIndex = 0;
-            document.getElementById('modalImgSrc').src = currentGallery[currentIndex];
-            document.getElementById('clientNameText').innerText = clientName;
-            document.getElementById('imageModal').style.display = 'flex';
+            currentClientName = clientName;
+            
+            updateModalContent();
+            document.getElementById('imageModal').style.display = "flex";
         }
 
         function closeModal() {
-            document.getElementById('imageModal').style.display = 'none';
+            document.getElementById('imageModal').style.display = "none";
         }
 
         function changeSlide(direction) {
             currentIndex += direction;
-            if (currentIndex < 0) currentIndex = currentGallery.length - 1;
-            if (currentIndex >= currentGallery.length) currentIndex = 0;
-            document.getElementById('modalImgSrc').src = currentGallery[currentIndex];
+            if (currentIndex >= currentImages.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = currentImages.length - 1;
+            updateModalContent();
         }
+
+        function updateModalContent() {
+            document.getElementById('modalImgSrc').src = currentImages[currentIndex];
+            document.getElementById('clientNameText').innerText = currentClientName + ` (${currentIndex + 1} dari ${currentImages.length})`;
+        }
+
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
     </script>
 </body>
 </html>
