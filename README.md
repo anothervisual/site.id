@@ -2811,6 +2811,22 @@
 
 </script>
 
+<audio id="backgroundMusic" loop>
+    <source src="musik/musik.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("backgroundMusic");
+
+music.volume = 0.5;
+
+window.addEventListener("load", () => {
+    music.play().catch(() => {
+        console.log("Autoplay diblokir browser.");
+    });
+});
+</script>
+
 </body>
 </html>
 ```
