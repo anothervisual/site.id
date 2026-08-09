@@ -1,21 +1,27 @@
-<!DOCTYPE html>
+
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
+    <meta name="description" content="Another Visual - Photography & Videography">
     <meta name="theme-color" content="#0a0a0a">
-    <meta name="description"
-          content="PT Another Visual - Photography, Videography & Visual Production">
 
-    <title>PT Another Visual</title>
+    <title>Another Visual — Photography & Videography</title>
 
     <style>
-        /* =========================================================
-           RESET
-        ========================================================= */
+        :root {
+            --bg: #080808;
+            --bg-soft: #111111;
+            --card: #151515;
+            --card-hover: #1b1b1b;
+            --text: #ffffff;
+            --text-muted: #a4a4a4;
+            --border: rgba(255,255,255,.10);
+            --accent: #ffffff;
+            --radius: 18px;
+            --max-width: 1200px;
+        }
 
         * {
             margin: 0;
@@ -25,24 +31,15 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
+            scroll-padding-top: 90px;
         }
 
         body {
-            font-family:
-                Inter,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
-
-            background: #080808;
-            color: #fff;
-            line-height: 1.6;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
             overflow-x: hidden;
-
-            -webkit-user-select: none;
-            user-select: none;
         }
 
         body.no-scroll {
@@ -52,12 +49,6 @@
         img {
             max-width: 100%;
             display: block;
-
-            -webkit-user-drag: none;
-            user-drag: none;
-
-            user-select: none;
-            -webkit-user-select: none;
         }
 
         a {
@@ -69,91 +60,34 @@
             font: inherit;
         }
 
-        /* =========================================================
-           VARIABLES
-        ========================================================= */
+        /* =========================
+           DEVICE INFO
+        ========================= */
 
-        :root {
-            --bg: #080808;
-            --bg-soft: #101010;
-            --card: #121212;
-            --card-hover: #181818;
-
-            --white: #ffffff;
-            --text: #f5f5f5;
-            --text-muted: #929292;
-
-            --border: rgba(255, 255, 255, 0.10);
-            --border-hover: rgba(255, 255, 255, 0.25);
-
-            --accent: #ffffff;
-
-            --radius-sm: 12px;
-            --radius-md: 20px;
-            --radius-lg: 28px;
-
-            --container: 1180px;
-
-            --shadow:
-                0 20px 60px rgba(0, 0, 0, 0.35);
-        }
-
-        /* =========================================================
-           DEVICE INDICATOR
-        ========================================================= */
-
-        body::before {
-            content: "";
+        #deviceInfo {
             display: none;
         }
 
-        body.device-mobile::before {
-            content: "Mobile";
-        }
-
-        body.device-tablet::before {
-            content: "Tablet";
-        }
-
-        body.device-desktop::before {
-            content: "Desktop";
-        }
-
-        /* =========================================================
-           CONTAINER
-        ========================================================= */
-
-        .container {
-            width: min(var(--container), calc(100% - 40px));
-            margin: 0 auto;
-        }
-
-        /* =========================================================
-           NAVBAR
-        ========================================================= */
+        /* =========================
+           HEADER
+        ========================= */
 
         .navbar {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 72px;
-
-            display: flex;
-            align-items: center;
-
             z-index: 1000;
-
-            background: rgba(8, 8, 8, 0.78);
+            width: 100%;
+            background: rgba(8, 8, 8, .88);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
-
             border-bottom: 1px solid var(--border);
         }
 
-        .nav-inner {
-            width: min(var(--container), calc(100% - 40px));
+        .nav-container {
+            max-width: var(--max-width);
+            min-height: 72px;
             margin: auto;
+            padding: 0 24px;
 
             display: flex;
             align-items: center;
@@ -162,15 +96,14 @@
         }
 
         .logo {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 800;
-            letter-spacing: -0.5px;
+            letter-spacing: -.5px;
             white-space: nowrap;
         }
 
         .logo span {
             color: var(--text-muted);
-            font-weight: 400;
         }
 
         .nav-menu {
@@ -182,635 +115,440 @@
 
         .nav-menu a {
             display: block;
-            padding: 9px 14px;
-
-            color: #aaa;
-            font-size: 13px;
-            font-weight: 600;
-
-            border-radius: 999px;
-
-            transition:
-                color 0.2s ease,
-                background 0.2s ease;
+            padding: 9px 13px;
+            border-radius: 10px;
+            color: var(--text-muted);
+            font-size: 14px;
+            transition: .25s ease;
         }
 
         .nav-menu a:hover,
         .nav-menu a.active {
             color: #fff;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255,255,255,.08);
         }
 
         .menu-toggle {
             display: none;
-
             width: 42px;
             height: 42px;
-
             border: 1px solid var(--border);
-            border-radius: 12px;
-
+            border-radius: 10px;
             background: #111;
             color: #fff;
-
             cursor: pointer;
         }
 
-        /* =========================================================
+        /* =========================
            HERO
-        ========================================================= */
+        ========================= */
 
         .hero {
-            min-height: 100vh;
-
+            min-height: 82vh;
             display: flex;
             align-items: center;
-
-            padding:
-                120px 0
-                80px;
-
-            position: relative;
-
-            background:
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(255,255,255,0.08),
-                    transparent 30%
-                ),
-                var(--bg);
+            justify-content: center;
+            text-align: center;
+            padding: 90px 24px;
         }
 
         .hero-content {
-            max-width: 850px;
+            max-width: 900px;
         }
 
         .hero-tag {
-            display: inline-flex;
-            align-items: center;
-
-            padding: 7px 12px;
-
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 7px 13px;
             border: 1px solid var(--border);
-            border-radius: 999px;
-
-            color: #aaa;
-
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            border-radius: 100px;
+            color: var(--text-muted);
+            font-size: 12px;
             text-transform: uppercase;
-
-            margin-bottom: 22px;
+            letter-spacing: 1.5px;
         }
 
         .hero h1 {
-            font-size: clamp(48px, 8vw, 100px);
-            line-height: 0.95;
-            letter-spacing: -5px;
-
+            font-size: clamp(42px, 8vw, 92px);
+            line-height: .95;
+            letter-spacing: -4px;
             margin-bottom: 28px;
         }
 
         .hero h1 span {
-            color: #777;
+            color: #888;
         }
 
-        .hero-description {
+        .hero p {
             max-width: 680px;
-
+            margin: auto;
             color: var(--text-muted);
             font-size: 17px;
-            line-height: 1.8;
-
-            margin-bottom: 32px;
         }
 
         .hero-buttons {
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 12px;
+            margin-top: 32px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-
-            min-height: 48px;
+            min-height: 46px;
             padding: 0 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: .25s ease;
+            cursor: pointer;
+        }
 
-            border-radius: 999px;
+        .btn-white {
+            color: #000;
+            background: #fff;
+        }
 
-            font-size: 13px;
-            font-weight: 700;
-
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease;
+        .btn-dark {
+            color: #fff;
+            background: #151515;
         }
 
         .btn:hover {
             transform: translateY(-2px);
         }
 
-        .btn-solid {
-            background: #fff;
-            color: #000;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: #fff;
-        }
-
-        /* =========================================================
-           SECTION
-        ========================================================= */
+        /* =========================
+           GENERAL SECTION
+        ========================= */
 
         section {
-            padding: 100px 0;
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 90px 24px;
         }
 
         .section-header {
-            margin-bottom: 45px;
+            margin-bottom: 35px;
         }
 
         .section-tag {
             display: inline-block;
-
-            color: #888;
-
-            font-size: 11px;
-            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-
-            margin-bottom: 12px;
         }
 
-        .section-title {
-            font-size: clamp(34px, 5vw, 58px);
-            line-height: 1;
-            letter-spacing: -2.5px;
-
-            margin-bottom: 18px;
+        .section-header h2 {
+            font-size: clamp(32px, 5vw, 55px);
+            line-height: 1.05;
+            letter-spacing: -2px;
         }
 
-        .section-description {
-            max-width: 680px;
-
+        .section-header p {
+            max-width: 650px;
+            margin-top: 15px;
             color: var(--text-muted);
-            font-size: 15px;
         }
 
-        /* =========================================================
+        /* =========================
            BENTO
-        ========================================================= */
+        ========================= */
 
         .bento-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 18px;
         }
 
         .bento-card {
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.055),
-                    rgba(255,255,255,0.018)
-                );
-
+            padding: 30px;
+            background: var(--card);
             border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-
-            padding: 32px;
-
-            box-shadow: var(--shadow);
-
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease,
-                background 0.3s ease;
+            border-radius: var(--radius);
+            transition: .3s ease;
         }
 
         .bento-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-hover);
             background: var(--card-hover);
+            transform: translateY(-3px);
         }
 
         .bento-card h3 {
-            font-size: 28px;
-            line-height: 1.1;
+            font-size: 26px;
             margin-bottom: 15px;
         }
 
         .bento-card p {
             color: var(--text-muted);
-            font-size: 14px;
-            line-height: 1.8;
         }
 
-        /* =========================================================
-           PORTFOLIO FILTER
-        ========================================================= */
+        /* =========================
+           PORTFOLIO
+        ========================= */
 
         .folder-nav {
             display: flex;
-            flex-wrap: wrap;
             gap: 8px;
-
+            flex-wrap: wrap;
             margin-bottom: 25px;
         }
 
         .folder-btn {
             padding: 10px 16px;
-
+            border-radius: 100px;
             border: 1px solid var(--border);
-            border-radius: 999px;
-
-            background: transparent;
-            color: #888;
-
+            background: #111;
+            color: var(--text-muted);
             cursor: pointer;
-
-            font-size: 12px;
-            font-weight: 700;
-
-            transition:
-                color 0.2s ease,
-                background 0.2s ease,
-                border-color 0.2s ease;
+            transition: .25s ease;
         }
 
         .folder-btn:hover,
         .folder-btn.active {
             background: #fff;
-            border-color: #fff;
             color: #000;
+            border-color: #fff;
         }
 
-        /* =========================================================
-           PORTFOLIO GRID
-        ========================================================= */
-
         .masonry-grid {
-            columns: 2 300px;
+            columns: 3 280px;
             column-gap: 18px;
         }
 
         .port-item {
             position: relative;
-
-            width: 100%;
-
-            margin-bottom: 18px;
-
-            break-inside: avoid;
-
             overflow: hidden;
-
-            border-radius: var(--radius-md);
-
+            margin-bottom: 18px;
+            border-radius: var(--radius);
             background: #111;
-
-            border: 1px solid var(--border);
-
             cursor: pointer;
-
-            transition:
-                transform 0.3s ease,
-                opacity 0.3s ease;
+            break-inside: avoid;
+            border: 1px solid var(--border);
         }
 
-        .port-item:hover {
-            transform: translateY(-4px);
+        .port-item img {
+            width: 100%;
+            height: auto;
+            transition: transform .5s ease;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .port-item:hover img {
+            transform: scale(1.04);
+        }
+
+        .port-overlay {
+            position: absolute;
+            inset: auto 0 0;
+            padding: 50px 20px 20px;
+            background: linear-gradient(
+                transparent,
+                rgba(0,0,0,.9)
+            );
+        }
+
+        .port-cat {
+            color: #bbb;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .port-title {
+            margin-top: 4px;
+            font-size: 20px;
+            font-weight: 700;
         }
 
         .port-item.hidden {
             display: none;
         }
 
-        .port-item img {
-            width: 100%;
-            height: auto;
-
-            object-fit: cover;
-
-            transition:
-                transform 0.5s ease,
-                filter 0.5s ease;
-        }
-
-        .port-item:hover img {
-            transform: scale(1.04);
-            filter: brightness(0.72);
-        }
-
-        .port-overlay {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-
-            padding: 24px;
-
-            background:
-                linear-gradient(
-                    transparent,
-                    rgba(0,0,0,0.9)
-                );
-
-            pointer-events: none;
-        }
-
-        .port-cat {
-            color: #aaa;
-
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-
-            margin-bottom: 4px;
-        }
-
-        .port-title {
-            color: #fff;
-
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        /* =========================================================
-           PRICE LIST
-        ========================================================= */
+        /* =========================
+           PRICE
+        ========================= */
 
         .price-section-title {
             display: block;
-
+            margin: 55px 0 20px;
             color: #fff;
-
-            margin:
-                50px 0 20px;
-
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .price-section-title:first-child {
-            margin-top: 0;
         }
 
         .price-grid {
             display: grid;
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 18px;
-
-            margin-bottom: 20px;
         }
 
         .price-card {
-            position: relative;
-
             display: flex;
             flex-direction: column;
-
-            min-height: 390px;
-
             padding: 30px;
-
             background: var(--card);
-
             border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease;
-        }
-
-        .price-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-hover);
+            border-radius: var(--radius);
         }
 
         .price-card.premium {
-            background:
-                linear-gradient(
-                    145deg,
-                    #202020,
-                    #101010
-                );
-
-            border-color: rgba(255,255,255,0.3);
+            background: #f4f4f4;
+            color: #000;
         }
 
         .price-card h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
         .price-amount {
-            font-size: 30px;
-            font-weight: 800;
-            letter-spacing: -1px;
-
             margin-bottom: 25px;
+            font-size: 29px;
+            font-weight: 800;
         }
 
         .price-features {
-            list-style: none;
+            flex: 1;
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
 
-            display: flex;
-            flex-direction: column;
-
-            gap: 12px;
-
-            margin-bottom: 30px;
+        .premium .price-features {
+            color: #555;
         }
 
         .price-features li {
-            color: #aaa;
-
-            font-size: 13px;
-
-            padding-left: 20px;
-
-            position: relative;
+            margin-bottom: 10px;
         }
 
-        .price-features li::before {
-            content: "✓";
+        .btn-outline,
+        .btn-solid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 45px;
+            margin-top: 25px;
+            border-radius: 9px;
+            border: 1px solid var(--border);
+            transition: .25s ease;
+        }
 
-            position: absolute;
-            left: 0;
+        .btn-outline:hover {
+            background: #fff;
+            color: #000;
+        }
 
+        .btn-solid {
+            background: #000;
             color: #fff;
-            font-weight: 800;
+            border-color: #000;
         }
 
-        .price-card .btn-outline,
-        .price-card .btn-solid {
-            margin-top: auto;
-            width: 100%;
-        }
-
-        /* =========================================================
+        /* =========================
            ABOUT
-        ========================================================= */
+        ========================= */
 
         .about-layout {
             display: grid;
-
-            grid-template-columns:
-                minmax(0, 1.15fr)
-                minmax(300px, 0.85fr);
-
-            gap: 40px;
-
+            grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+            gap: 35px;
             align-items: stretch;
         }
 
         .founder-text h3 {
-            font-size: 34px;
-            line-height: 1.1;
-
-            margin-bottom: 20px;
+            font-size: 35px;
+            margin-bottom: 12px;
         }
 
         .founder-text h4 {
-            color: #fff;
-
-            font-size: 17px;
-            line-height: 1.5;
-
             margin-bottom: 12px;
         }
 
         .founder-text p {
+            margin-bottom: 17px;
             color: var(--text-muted);
+        }
 
-            font-size: 14px;
-            line-height: 1.85;
+        .founder-text .signature {
+            margin-top: 30px;
+            color: #fff;
+            font-weight: 600;
+        }
 
-            margin-bottom: 15px;
+        .signature span {
+            color: var(--text-muted);
+            font-weight: 400;
         }
 
         .card-image {
-            width: 100%;
             min-height: 450px;
-
-            border-radius: var(--radius-md);
-
-            background-image:
-                url('https://lh3.googleusercontent.com/d/1XCVRVaa9RkMXH04tVXUSDGJZN92wRSL9');
-
+            border-radius: var(--radius);
             background-size: cover;
             background-position: center;
-
-            border: 1px solid var(--border);
         }
 
-        /* =========================================================
+        /* =========================
            CONTACT
-        ========================================================= */
+        ========================= */
 
         .contact-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
 
         .contact-card {
-            display: block;
-
-            cursor: pointer;
-
-            min-height: 190px;
-
-            transition:
-                transform 0.25s ease,
-                border-color 0.25s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255,255,255,0.3);
+            min-height: 210px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .contact-card h4 {
-            font-size: 22px;
-            margin-bottom: 10px;
+            font-size: 24px;
+            margin-bottom: 8px;
         }
 
         .contact-card a {
-            display: inline-block;
-
-            color: #aaa;
-
-            font-size: 14px;
-
+            color: var(--text-muted);
             word-break: break-word;
-
-            transition: color 0.2s ease;
+            transition: .2s ease;
         }
 
-        .contact-card:hover a {
+        .contact-card a:hover {
             color: #fff;
         }
 
-        /* =========================================================
+        /* =========================
            FOOTER
-        ========================================================= */
+        ========================= */
 
         footer {
-            padding: 45px 0;
-
+            padding: 50px 24px;
             border-top: 1px solid var(--border);
-
-            color: #666;
-
-            font-size: 12px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
         }
 
-        .footer-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            gap: 20px;
-        }
-
-        /* =========================================================
-           SLIDER / LIGHTBOX
-        ========================================================= */
+        /* =========================
+           SLIDER
+        ========================= */
 
         .slider-modal {
             position: fixed;
             inset: 0;
-
             z-index: 9999;
-
             display: none;
             align-items: center;
             justify-content: center;
-
-            padding: 20px;
-
-            background: rgba(0,0,0,0.96);
-
-            touch-action: none;
+            padding: 25px;
+            background: rgba(0,0,0,.96);
         }
 
         .slider-modal.active {
@@ -819,59 +557,40 @@
 
         .slider-content {
             position: relative;
-
-            width: 100%;
-            height: 100%;
-
+            width: min(1100px, 100%);
+            height: min(90vh, 800px);
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .slider-image {
-            max-width: min(90vw, 1200px);
-            max-height: 84vh;
-
+            max-width: calc(100% - 120px);
+            max-height: 85vh;
             width: auto;
             height: auto;
-
             object-fit: contain;
-
-            border-radius: 8px;
-
-            box-shadow:
-                0 30px 100px rgba(0,0,0,0.7);
-
-            pointer-events: none;
-
-            -webkit-user-drag: none;
+            border-radius: 10px;
             user-select: none;
+            -webkit-user-drag: none;
         }
 
         .slider-close,
         .slider-prev,
         .slider-next {
-            position: fixed;
-
-            z-index: 10;
-
+            position: absolute;
+            z-index: 2;
             display: flex;
             align-items: center;
             justify-content: center;
-
-            border: 1px solid rgba(255,255,255,0.18);
-
-            background: rgba(20,20,20,0.75);
+            width: 48px;
+            height: 48px;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 50%;
+            background: rgba(255,255,255,.08);
             color: #fff;
-
             cursor: pointer;
-
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-
-            transition:
-                background 0.2s ease,
-                transform 0.2s ease;
+            transition: .2s ease;
         }
 
         .slider-close:hover,
@@ -882,140 +601,92 @@
         }
 
         .slider-close {
-            top: 20px;
-            right: 20px;
-
-            width: 46px;
-            height: 46px;
-
-            border-radius: 50%;
-
-            font-size: 25px;
-        }
-
-        .slider-prev,
-        .slider-next {
-            top: 50%;
-            transform: translateY(-50%);
-
-            width: 50px;
-            height: 50px;
-
-            border-radius: 50%;
-
-            font-size: 22px;
+            top: 10px;
+            right: 10px;
         }
 
         .slider-prev {
-            left: 25px;
+            left: 10px;
         }
 
         .slider-next {
-            right: 25px;
+            right: 10px;
         }
 
         .slider-counter {
-            position: fixed;
-
+            position: absolute;
+            bottom: 10px;
             left: 50%;
-            bottom: 25px;
-
             transform: translateX(-50%);
-
-            color: #aaa;
-
-            padding: 7px 13px;
-
-            background: rgba(20,20,20,0.8);
-
-            border: 1px solid rgba(255,255,255,0.1);
-
-            border-radius: 999px;
-
+            padding: 7px 12px;
+            border-radius: 100px;
+            background: rgba(0,0,0,.6);
+            color: #fff;
             font-size: 12px;
         }
 
         .slider-title {
-            position: fixed;
-
-            top: 25px;
+            position: absolute;
+            top: 10px;
             left: 50%;
-
             transform: translateX(-50%);
-
-            max-width: 60%;
-
-            color: #aaa;
-
-            font-size: 12px;
-            font-weight: 700;
-
+            width: 70%;
             text-align: center;
-
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            color: #fff;
+            font-size: 14px;
         }
 
-        /* =========================================================
+        /* =========================
            MOBILE
-        ========================================================= */
+        ========================= */
 
         @media (max-width: 900px) {
 
-            .container,
-            .nav-inner {
-                width: min(
-                    var(--container),
-                    calc(100% - 30px)
-                );
-            }
-
-            .nav-menu {
-                position: fixed;
-
-                top: 72px;
-                left: 15px;
-                right: 15px;
-
-                display: none;
-                flex-direction: column;
-
-                padding: 10px;
-
-                background: rgba(15,15,15,0.97);
-
-                border: 1px solid var(--border);
-                border-radius: 18px;
-
-                box-shadow: var(--shadow);
-            }
-
-            .nav-menu.open {
-                display: flex;
-            }
-
-            .nav-menu li,
-            .nav-menu a {
-                width: 100%;
-            }
-
-            .nav-menu a {
-                padding: 13px 15px;
+            .nav-container {
+                min-height: 64px;
             }
 
             .menu-toggle {
                 display: block;
             }
 
-            .bento-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
+            .nav-menu {
+                position: absolute;
+                top: 64px;
+                left: 12px;
+                right: 12px;
+
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+
+                padding: 10px;
+                background: rgba(15,15,15,.98);
+                border: 1px solid var(--border);
+                border-radius: 14px;
             }
 
-            .price-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
+            .nav-menu.show {
+                display: flex;
+            }
+
+            .nav-menu a {
+                padding: 13px;
+            }
+
+            .hero {
+                min-height: 75vh;
+                padding: 70px 20px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2.5px;
+            }
+
+            .bento-grid,
+            .price-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
 
             .about-layout {
@@ -1023,80 +694,61 @@
             }
 
             .card-image {
-                min-height: 420px;
+                min-height: 350px;
                 order: 2;
+            }
+
+            .founder-text {
+                order: 1;
+            }
+
+            section {
+                padding: 65px 18px;
             }
         }
 
         @media (max-width: 600px) {
 
-            html {
-                scroll-padding-top: 70px;
+            .nav-container {
+                padding: 0 16px;
             }
 
-            .navbar {
-                height: 64px;
-            }
-
-            .nav-menu {
-                top: 64px;
-            }
-
-            .container,
-            .nav-inner {
-                width: calc(100% - 24px);
-            }
-
-            section {
-                padding: 70px 0;
+            .logo {
+                font-size: 17px;
             }
 
             .hero {
-                min-height: 90vh;
-
-                padding:
-                    100px 0
-                    60px;
+                padding: 60px 18px;
             }
 
             .hero h1 {
-                font-size: clamp(46px, 15vw, 72px);
-                letter-spacing: -3px;
+                font-size: clamp(42px, 15vw, 70px);
             }
 
-            .hero-description {
-                font-size: 14px;
-                line-height: 1.75;
+            .hero p {
+                font-size: 15px;
             }
 
             .hero-buttons {
-                display: grid;
-                grid-template-columns: 1fr;
+                flex-direction: column;
             }
 
-            .btn {
+            .hero-buttons .btn {
                 width: 100%;
             }
 
             .bento-card {
-                padding: 24px;
+                padding: 23px;
             }
 
             .bento-card h3 {
-                font-size: 24px;
-            }
-
-            .masonry-grid {
-                columns: 1;
+                font-size: 23px;
             }
 
             .folder-nav {
                 flex-wrap: nowrap;
-
                 overflow-x: auto;
-
                 padding-bottom: 5px;
-
                 scrollbar-width: none;
             }
 
@@ -1108,122 +760,76 @@
                 flex: 0 0 auto;
             }
 
-            .price-grid {
-                grid-template-columns: 1fr;
+            .masonry-grid {
+                columns: 1;
             }
 
             .price-card {
-                min-height: auto;
-            }
-
-            .about-layout {
-                gap: 25px;
-            }
-
-            .card-image {
-                min-height: 330px;
+                padding: 24px;
             }
 
             .founder-text h3 {
                 font-size: 29px;
             }
 
-            .contact-grid {
-                gap: 12px;
+            .card-image {
+                min-height: 300px;
             }
 
             .contact-card {
-                min-height: 160px;
+                min-height: 170px;
             }
 
-            .footer-inner {
-                flex-direction: column;
-                align-items: flex-start;
+            .slider-modal {
+                padding: 10px;
+            }
+
+            .slider-content {
+                height: 90vh;
+            }
+
+            .slider-image {
+                max-width: 100%;
+                max-height: 75vh;
             }
 
             .slider-prev,
             .slider-next {
                 width: 42px;
                 height: 42px;
-
-                top: auto;
-                bottom: 20px;
-
-                transform: none;
             }
 
             .slider-prev {
-                left: 20px;
+                left: 5px;
             }
 
             .slider-next {
-                right: 20px;
+                right: 5px;
             }
 
             .slider-close {
-                top: 15px;
-                right: 15px;
-
-                width: 42px;
-                height: 42px;
-            }
-
-            .slider-image {
-                max-width: 94vw;
-                max-height: 76vh;
+                top: 0;
+                right: 0;
             }
 
             .slider-title {
-                top: 20px;
-                left: 75px;
-                right: 75px;
-
-                transform: none;
-
-                max-width: none;
-            }
-
-            .slider-counter {
-                bottom: 76px;
+                top: 5px;
+                width: 60%;
+                font-size: 12px;
             }
         }
 
-        /* =========================================================
-           SMALL PHONE
-        ========================================================= */
-
-        @media (max-width: 380px) {
-
-            .hero h1 {
-                font-size: 43px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-
-            .bento-card,
-            .price-card {
-                padding: 20px;
-            }
-        }
-
-        /* =========================================================
+        /* =========================
            REDUCE MOTION
-        ========================================================= */
+        ========================= */
 
         @media (prefers-reduced-motion: reduce) {
-
-            html {
-                scroll-behavior: auto;
-            }
-
             *,
             *::before,
             *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+                transition: none !important;
+                animation: none !important;
             }
         }
     </style>
@@ -1231,12 +837,12 @@
 
 <body>
 
-    <!-- =========================================================
-         NAVIGATION
-    ========================================================= -->
+    <!-- =========================
+         NAVBAR
+    ========================= -->
 
     <header class="navbar">
-        <div class="nav-inner">
+        <div class="nav-container">
 
             <a href="#home" class="logo">
                 Another <span>Visual</span>
@@ -1245,91 +851,58 @@
             <button
                 class="menu-toggle"
                 id="menuToggle"
-                type="button"
                 aria-label="Buka menu"
                 aria-expanded="false">
                 ☰
             </button>
 
-            <ul class="nav-menu" id="navMenu">
-                <li>
-                    <a href="#home" class="nav-link active">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#portfolio" class="nav-link">
-                        Portfolio
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#harga" class="nav-link">
-                        Pricelist
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#tentang" class="nav-link">
-                        Tentang Kami
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#kontak" class="nav-link">
-                        Kontak
-                    </a>
-                </li>
-            </ul>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#filosofi">Filosofi</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#pricelist">Pricelist</a></li>
+                    <li><a href="#tentang">Tentang Kami</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
 
         </div>
     </header>
 
 
-    <!-- =========================================================
+    <!-- =========================
          HOME
-    ========================================================= -->
+    ========================= -->
 
     <main>
 
         <section id="home" class="hero">
 
-            <div class="container">
+            <div class="hero-content">
 
-                <div class="hero-content">
+                <span class="hero-tag">
+                    Photography • Videography • Visual Production
+                </span>
 
-                    <div class="hero-tag">
-                        PT Another Visual
-                    </div>
+                <h1>
+                    Another<br>
+                    <span>Visual.</span>
+                </h1>
 
-                    <h1>
-                        Visual yang
-                        <span>bercerita.</span>
-                    </h1>
+                <p>
+                    Mengabadikan cerita, emosi, dan momen melalui
+                    karya visual yang memiliki karakter.
+                </p>
 
-                    <p class="hero-description">
-                        Kami mengabadikan momen melalui fotografi,
-                        videografi, dan produksi visual dengan pendekatan
-                        kreatif, sinematik, dan penuh emosi.
-                    </p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-white">
+                        Lihat Portfolio
+                    </a>
 
-                    <div class="hero-buttons">
-
-                        <a
-                            href="#portfolio"
-                            class="btn btn-solid">
-                            Lihat Portfolio
-                        </a>
-
-                        <a
-                            href="#kontak"
-                            class="btn btn-outline">
-                            Hubungi Kami
-                        </a>
-
-                    </div>
-
+                    <a href="#kontak" class="btn btn-dark">
+                        Hubungi Kami
+                    </a>
                 </div>
 
             </div>
@@ -1337,293 +910,59 @@
         </section>
 
 
-        <!-- =====================================================
+        <!-- =========================
              FILOSOFI
-        ===================================================== -->
+        ========================= -->
 
         <section id="filosofi">
 
-            <div class="container">
+            <div class="section-header">
+                <span class="section-tag">01. Filosofi</span>
 
-                <div class="section-header">
-
-                    <span class="section-tag">
-                        Filosofi
-                    </span>
-
-                    <h2 class="section-title">
-                        Cerita di balik<br>
-                        setiap karya.
-                    </h2>
-
-                </div>
-
-                <div class="bento-grid">
-
-                    <div class="bento-card">
-
-                        <span class="section-tag">
-                            Filosofi Kami
-                        </span>
-
-                        <h3>
-                            Estetika Tanpa Batas
-                        </h3>
-
-                        <p>
-                            Kami percaya bahwa mahakarya visual tidak
-                            ditentukan seberapa mahal alat yang digenggam,
-                            melainkan bagaimana ketajaman mata seorang
-                            kreator dalam merangkai cerita, komposisi,
-                            dan emosi di setiap jepretan.
-                        </p>
-
-                    </div>
-
-
-                    <div class="bento-card">
-
-                        <span class="section-tag">
-                            Visi Kami
-                        </span>
-
-                        <h3>
-                            Karya yang Berbicara
-                        </h3>
-
-                        <p>
-                            Visi utama kami adalah menghadirkan standar
-                            visual tertinggi yang menyentuh hati. Melalui
-                            teknik pencahayaan matang, sudut pandang
-                            sinematik, dan sentuhan emosional, setiap momen
-                            diabadikan bukan sekadar gambar, melainkan
-                            sebuah mahakarya abadi.
-                        </p>
-
-                    </div>
-
-                </div>
-
+                <h2>
+                    Visual yang<br>
+                    punya cerita.
+                </h2>
             </div>
 
-        </section>
+            <div class="bento-grid">
 
-
-        <!-- =====================================================
-             PORTFOLIO
-        ===================================================== -->
-
-        <section id="portfolio">
-
-            <div class="container">
-
-                <div class="section-header">
+                <div class="bento-card">
 
                     <span class="section-tag">
-                        Portfolio
+                        Filosofi Kami
                     </span>
 
-                    <h2 class="section-title">
-                        Karya kami.
-                    </h2>
+                    <h3>
+                        Estetika Tanpa Batas
+                    </h3>
 
-                    <p class="section-description">
-                        Pilih kategori untuk melihat dokumentasi
-                        fotografi dan visual PT Another Visual.
+                    <p>
+                        Kami percaya bahwa mahakarya visual tidak ditentukan
+                        seberapa mahal alat yang digenggam, melainkan bagaimana
+                        ketajaman mata seorang kreator dalam merangkai cerita,
+                        komposisi, dan emosi di setiap jepretan.
                     </p>
 
                 </div>
 
+                <div class="bento-card">
 
-                <div class="folder-nav">
+                    <span class="section-tag">
+                        Visi Kami
+                    </span>
 
-                    <button
-                        class="folder-btn active"
-                        onclick="filterItems('all')">
-                        Semua Folder
-                    </button>
+                    <h3>
+                        Karya yang Berbicara
+                    </h3>
 
-                    <button
-                        class="folder-btn"
-                        onclick="filterItems('wedding')">
-                        Wedding
-                    </button>
-
-                    <button
-                        class="folder-btn"
-                        onclick="filterItems('engagement')">
-                        Engagement
-                    </button>
-
-                    <button
-                        class="folder-btn"
-                        onclick="filterItems('wisuda')">
-                        Wisuda
-                    </button>
-
-                    <button
-                        class="folder-btn"
-                        onclick="filterItems('event')">
-                        Event
-                    </button>
-
-                </div>
-
-
-                <div class="masonry-grid">
-
-
-                    <!-- WEDDING -->
-
-                    <div
-                        class="port-item wedding"
-                        onclick="openSlider(
-                            [
-                                'https://lh3.googleusercontent.com/d/1K5JYuw4FpqSI9NEduRvZNm_8eJRS_Mr2',
-                                'https://lh3.googleusercontent.com/d/1sJJIfzNtLeDnY69v5Vw9it6EMWJzScWO',
-                                'https://lh3.googleusercontent.com/d/18V0VTAzCCy9rw8Pkyy3jwVr06jbwqXjE',
-                                'https://lh3.googleusercontent.com/d/18AiExWPI4x61GapsGDVEBAq6v3mhiUvw',
-                                'https://lh3.googleusercontent.com/d/1jKrtiykv5AEAyyIixWZJIblm4kwSbvj3',
-                                'https://lh3.googleusercontent.com/d/1VikQ2MtDl94PstxWeOPGFGZZBA76wRAJ',
-                                'https://lh3.googleusercontent.com/d/18UYnUMDsVlxNF5CD3oRa7ShpY560WHPY',
-                                'https://lh3.googleusercontent.com/d/12_urvrE4195fyQmf1RhEv3-ToTvxv6l5',
-                                'https://lh3.googleusercontent.com/d/1ffcvFRZDPaoMzVLIgqm3GgDp83qRak6v'
-                            ],
-                            'Wedding Falaq & Cindy'
-                        )">
-
-                        <img
-                            src="https://lh3.googleusercontent.com/d/1K5JYuw4FpqSI9NEduRvZNm_8eJRS_Mr2"
-                            alt="Wedding Falaq & Cindy"
-                            draggable="false">
-
-                        <div class="port-overlay">
-
-                            <div class="port-cat">
-                                Wedding (9 Foto)
-                            </div>
-
-                            <div class="port-title">
-                                Falaq & Cindy
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ENGAGEMENT -->
-
-                    <div
-                        class="port-item engagement"
-                        onclick="openSlider(
-                            [
-                                'https://lh3.googleusercontent.com/d/1CSJdaeY-POpOhoytFeI4PyPvCc6_43Jk',
-                                'https://lh3.googleusercontent.com/d/1RZIXo9bAFTMbIv327LqCBZZys3No0Jop',
-                                'https://lh3.googleusercontent.com/d/16RB0mGvb4YMqixSaT5ugndThBWce_IP4',
-                                'https://lh3.googleusercontent.com/d/1pgDLZcUJxZ5fiGv4EadaWnQyigXkrLmc',
-                                'https://lh3.googleusercontent.com/d/1ul39oBgor5kz0XAVGsM0vEPVOcfrKVv9',
-                                'https://lh3.googleusercontent.com/d/1JLmj7thqafLvTXMTqGZXCLMx5mo1gtpm',
-                                'https://lh3.googleusercontent.com/d/1aVgL_GPfg2adk_RN1UYLaL1vM1wkZ8iw',
-                                'https://lh3.googleusercontent.com/d/1bl36KWAmRwiRCaqQicr1xZhBOc86RcwO',
-                                'https://lh3.googleusercontent.com/d/17yN3ucaM5EtI46O7e8fGwdWyKxfylyCW',
-                                'https://lh3.googleusercontent.com/d/1boUj5TLrYIWDkrcgW8AQsTghgnke36rk',
-                                'https://lh3.googleusercontent.com/d/1UmCat8QQcEtkDr2KyzhM0yWys7l7LDkc',
-                                'https://lh3.googleusercontent.com/d/19I127-vR7AFi6OKdj2vFYBLA6DJofGMU',
-                                'https://lh3.googleusercontent.com/d/1Ui7W4zjre4TtivvXq2NDbsyw3gTqqIhC'
-                            ],
-                            'Engagement Fikry & Reny'
-                        )">
-
-                        <img
-                            src="https://lh3.googleusercontent.com/d/1CSJdaeY-POpOhoytFeI4PyPvCc6_43Jk"
-                            alt="Engagement Fikry & Reny"
-                            draggable="false">
-
-                        <div class="port-overlay">
-
-                            <div class="port-cat">
-                                Engagement (13 Foto)
-                            </div>
-
-                            <div class="port-title">
-                                Fikry & Reny
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- WISUDA -->
-
-                    <div
-                        class="port-item wisuda"
-                        onclick="openSlider(
-                            [
-                                'https://lh3.googleusercontent.com/d/1tdANeaA_DLSrfHtAXZQQEDzNckCwCl_u',
-                                'https://lh3.googleusercontent.com/d/1ANX4TlyLrA2rg4es-1twvUenPk2xD8ha',
-                                'https://lh3.googleusercontent.com/d/1L9HRUY0fNw6iAVpeb3TofmZWORZY82so',
-                                'https://lh3.googleusercontent.com/d/1X4687Zb8Zos-tGLzKB44nmIBlZeBrR9_',
-                                'https://lh3.googleusercontent.com/d/1CTqP6v3eLVrPBklcaRW7sttGg4_QwgCx',
-                                'https://lh3.googleusercontent.com/d/1sPew-WXRoUgqJr-7rJXoqHli882oFJi1'
-                            ],
-                            'Wisuda Reny Riani'
-                        )">
-
-                        <img
-                            src="https://lh3.googleusercontent.com/d/1tdANeaA_DLSrfHtAXZQQEDzNckCwCl_u"
-                            alt="Wisuda Reny Riani"
-                            draggable="false">
-
-                        <div class="port-overlay">
-
-                            <div class="port-cat">
-                                Wisuda (6 Foto)
-                            </div>
-
-                            <div class="port-title">
-                                Reny Riani
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- EVENT -->
-
-                    <div
-                        class="port-item event"
-                        onclick="openSlider(
-                            [
-                                'https://lh3.googleusercontent.com/d/1_axQ1oATs8QwUrEDC56LEWqSs5cwa5LA',
-                                'https://lh3.googleusercontent.com/d/1rLXnbHyq6fo_bcscrBcXqjiXNjQ9dcYN',
-                                'https://lh3.googleusercontent.com/d/1zkjFPSBp0x4keMEPfFJv0tGuRjHae2GL',
-                                'https://lh3.googleusercontent.com/d/1cWtB847VpSlCIG_KqRce9I6_5ql_TU5O',
-                                'https://lh3.googleusercontent.com/d/1fT-R800YeD44qZNZnl-KKq6qPQkgs39p'
-                            ],
-                            'Corporate - Jalan Santai Kemerdekaan 2025'
-                        )">
-
-                        <img
-                            src="https://lh3.googleusercontent.com/d/1_axQ1oATs8QwUrEDC56LEWqSs5cwa5LA"
-                            alt="Corporate Event"
-                            draggable="false">
-
-                        <div class="port-overlay">
-
-                            <div class="port-cat">
-                                Corporate Event (5 Foto)
-                            </div>
-
-                            <div class="port-title">
-                                Jalan Santai 2025
-                            </div>
-
-                        </div>
-
-                    </div>
+                    <p>
+                        Visi utama kami adalah menghadirkan standar visual
+                        tertinggi yang menyentuh hati. Melalui teknik
+                        pencahayaan matang, sudut pandang sinematik, dan
+                        sentuhan emosional, setiap momen diabadikan bukan
+                        sekadar gambar, melainkan sebuah mahakarya abadi.
+                    </p>
 
                 </div>
 
@@ -1632,111 +971,86 @@
         </section>
 
 
-        <!-- =====================================================
-             PRICELIST
-        ===================================================== -->
+        <!-- =========================
+             PORTFOLIO
+        ========================= -->
 
-        <section id="harga">
+        <section id="portfolio">
 
-            <div class="container">
+            <div class="section-header">
 
-                <div class="section-header">
+                <span class="section-tag">
+                    02. Portfolio
+                </span>
 
-                    <span class="section-tag">
-                        Pricelist
-                    </span>
+                <h2>
+                    Selected Works.
+                </h2>
 
-                    <h2 class="section-title">
-                        Pilih paketmu.
-                    </h2>
+                <p>
+                    Beberapa karya yang telah kami abadikan.
+                    Klik foto untuk melihat seluruh dokumentasi.
+                </p>
 
-                </div>
+            </div>
 
+            <div class="folder-nav">
+
+                <button class="folder-btn active" data-filter="all">
+                    Semua Folder
+                </button>
+
+                <button class="folder-btn" data-filter="wedding">
+                    Wedding
+                </button>
+
+                <button class="folder-btn" data-filter="engagement">
+                    Engagement
+                </button>
+
+                <button class="folder-btn" data-filter="wisuda">
+                    Wisuda
+                </button>
+
+                <button class="folder-btn" data-filter="event">
+                    Event
+                </button>
+
+            </div>
+
+
+            <div class="masonry-grid">
 
                 <!-- WEDDING -->
 
-                <span class="section-tag price-section-title">
-                    01. Paket Wedding
-                </span>
+                <div
+                    class="port-item wedding"
+                    data-title="Wedding Falaq & Cindy"
+                    data-images='[
+                        "https://lh3.googleusercontent.com/d/1K5JYuw4FpqSI9NEduRvZNm_8eJRS_Mr2",
+                        "https://lh3.googleusercontent.com/d/1sJJIfzNtLeDnY69v5Vw9it6EMWJzScWO",
+                        "https://lh3.googleusercontent.com/d/18V0VTAzCCy9rw8Pkyy3jwVr06jbwqXjE",
+                        "https://lh3.googleusercontent.com/d/18AiExWPI4x61GapsGDVEBAq6v3mhiUvw",
+                        "https://lh3.googleusercontent.com/d/1jKrtiykv5AEAyyIixWZJIblm4kwSbvj3",
+                        "https://lh3.googleusercontent.com/d/1VikQ2MtDl94PstxWeOPGFGZZBA76wRAJ",
+                        "https://lh3.googleusercontent.com/d/18UYnUMDsVlxNF5CD3oRa7ShpY560WHPY",
+                        "https://lh3.googleusercontent.com/d/12_urvrE4195fyQmf1RhEv3-ToTvxv6l5",
+                        "https://lh3.googleusercontent.com/d/1ffcvFRZDPaoMzVLIgqm3GgDp83qRak6v"
+                    ]'>
 
-                <div class="price-grid">
+                    <img
+                        src="https://lh3.googleusercontent.com/d/1K5JYuw4FpqSI9NEduRvZNm_8eJRS_Mr2"
+                        alt="Wedding Falaq & Cindy"
+                        loading="lazy">
 
-                    <div class="price-card">
-
-                        <h3>Basic</h3>
-
-                        <div class="price-amount">
-                            Rp 850.000
+                    <div class="port-overlay">
+                        <div class="port-cat">
+                            Wedding (9 Foto)
                         </div>
 
-                        <ul class="price-features">
-
-                            <li>
-                                1-2 Fotografer Profesional
-                            </li>
-
-                            <li>
-                                Full Color Grading & Editing
-                            </li>
-
-                            <li>
-                                Durasi Fleksibel (Mengikuti Klien)
-                            </li>
-
-                            <li>
-                                Pengiriman via Google Drive
-                            </li>
-
-                        </ul>
-
-                        <a
-                            href="https://wa.me/6287765829615"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn-outline btn">
-                            Pilih Paket
-                        </a>
-
-                    </div>
-
-
-                    <div class="price-card premium">
-
-                        <h3>Premium</h3>
-
-                        <div class="price-amount">
-                            Rp 1.500.000
+                        <div class="port-title">
+                            Falaq & Cindy
                         </div>
-
-                        <ul class="price-features">
-
-                            <li>
-                                1 Fotografer & 1 Videografer
-                            </li>
-
-                            <li>
-                                Edit Foto + Video Sinematik
-                                (Max 5 Menit)
-                            </li>
-
-                            <li>
-                                Durasi Fleksibel (Mengikuti Klien)
-                            </li>
-
-                            <li>
-                                Pengiriman via Google Drive
-                            </li>
-
-                        </ul>
-
-                        <a
-                            href="https://wa.me/6287765829615"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn-solid btn">
-                            Pilih Paket
-                        </a>
-
                     </div>
 
                 </div>
@@ -1744,114 +1058,38 @@
 
                 <!-- ENGAGEMENT -->
 
-                <span class="section-tag price-section-title">
-                    02. Paket Engagement
-                </span>
+                <div
+                    class="port-item engagement"
+                    data-title="Engagement Fikry & Reny"
+                    data-images='[
+                        "https://lh3.googleusercontent.com/d/1CSJdaeY-POpOhoytFeI4PyPvCc6_43Jk",
+                        "https://lh3.googleusercontent.com/d/1RZIXo9bAFTMbIv327LqCBZZys3No0Jop",
+                        "https://lh3.googleusercontent.com/d/16RB0mGvb4YMqixSaT5ugndThBWce_IP4",
+                        "https://lh3.googleusercontent.com/d/1pgDLZcUJxZ5fiGv4EadaWnQyigXkrLmc",
+                        "https://lh3.googleusercontent.com/d/1ul39oBgor5kz0XAVGsM0vEPVOcfrKVv9",
+                        "https://lh3.googleusercontent.com/d/1JLmj7thqafLvTXMTqGZXCLMx5mo1gtpm",
+                        "https://lh3.googleusercontent.com/d/1aVgL_GPfg2adk_RN1UYLaL1vM1wkZ8iw",
+                        "https://lh3.googleusercontent.com/d/1bl36KWAmRwiRCaqQicr1xZhBOc86RcwO",
+                        "https://lh3.googleusercontent.com/d/17yN3ucaM5EtI46O7e8fGwdWyKxfylyCW",
+                        "https://lh3.googleusercontent.com/d/1boUj5TLrYIWDkrcgW8AQsTghgnke36rk",
+                        "https://lh3.googleusercontent.com/d/1UmCat8QQcEtkDr2KyzhM0yWys7l7LDkc",
+                        "https://lh3.googleusercontent.com/d/19I127-vR7AFi6OKdj2vFYBLA6DJofGMU",
+                        "https://lh3.googleusercontent.com/d/1Ui7W4zjre4TtivvXq2NDbsyw3gTqqIhC"
+                    ]'>
 
-                <div class="price-grid">
+                    <img
+                        src="https://lh3.googleusercontent.com/d/1CSJdaeY-POpOhoytFeI4PyPvCc6_43Jk"
+                        alt="Engagement Fikry & Reny"
+                        loading="lazy">
 
-                    <div class="price-card">
-
-                        <h3>Foto Saja</h3>
-
-                        <div class="price-amount">
-                            Rp 350.000
+                    <div class="port-overlay">
+                        <div class="port-cat">
+                            Engagement (13 Foto)
                         </div>
 
-                        <ul class="price-features">
-
-                            <li>
-                                1-2 Fotografer
-                            </li>
-
-                            <li>
-                                Full Editing Foto
-                            </li>
-
-                            <li>
-                                Durasi Fleksibel
-                            </li>
-
-                        </ul>
-
-                        <a
-                            href="https://wa.me/6287765829615"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn-outline btn">
-                            Pilih Paket
-                        </a>
-
-                    </div>
-
-
-                    <div class="price-card">
-
-                        <h3>Video Saja</h3>
-
-                        <div class="price-amount">
-                            Rp 500.000
+                        <div class="port-title">
+                            Fikry & Reny
                         </div>
-
-                        <ul class="price-features">
-
-                            <li>
-                                1 Videografer
-                            </li>
-
-                            <li>
-                                Video Sinematik (Max 5 Menit)
-                            </li>
-
-                            <li>
-                                Durasi Fleksibel
-                            </li>
-
-                        </ul>
-
-                        <a
-                            href="https://wa.me/6287765829615"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn-outline btn">
-                            Pilih Paket
-                        </a>
-
-                    </div>
-
-
-                    <div class="price-card premium">
-
-                        <h3>Komplit</h3>
-
-                        <div class="price-amount">
-                            Rp 850.000
-                        </div>
-
-                        <ul class="price-features">
-
-                            <li>
-                                1 Fotografer & 1 Videografer
-                            </li>
-
-                            <li>
-                                Full Edit Foto + Video Sinematik
-                            </li>
-
-                            <li>
-                                Durasi Fleksibel
-                            </li>
-
-                        </ul>
-
-                        <a
-                            href="https://wa.me/6287765829615"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn-solid btn">
-                            Pilih Paket
-                        </a>
-
                     </div>
 
                 </div>
@@ -1859,114 +1097,62 @@
 
                 <!-- WISUDA -->
 
-                <span class="section-tag price-section-title">
-                    03. Paket Wisuda
-                </span>
+                <div
+                    class="port-item wisuda"
+                    data-title="Wisuda Reny Riani"
+                    data-images='[
+                        "https://lh3.googleusercontent.com/d/1tdANeaA_DLSrfHtAXZQQEDzNckCwCl_u",
+                        "https://lh3.googleusercontent.com/d/1ANX4TlyLrA2rg4es-1twvUenPk2xD8ha",
+                        "https://lh3.googleusercontent.com/d/1L9HRUY0fNw6iAVpeb3TofmZWORZY82so",
+                        "https://lh3.googleusercontent.com/d/1X4687Zb8Zos-tGLzKB44nmIBlZeBrR9_",
+                        "https://lh3.googleusercontent.com/d/1CTqP6v3eLVrPBklcaRW7sttGg4_QwgCx",
+                        "https://lh3.googleusercontent.com/d/1sPew-WXRoUgqJr-7rJXoqHli882oFJi1"
+                    ]'>
 
-                <div class="price-grid">
+                    <img
+                        src="https://lh3.googleusercontent.com/d/1tdANeaA_DLSrfHtAXZQQEDzNckCwCl_u"
+                        alt="Wisuda Reny Riani"
+                        loading="lazy">
 
-                    <div class="price-card">
-
-                        <h3>Basic</h3>
-
-                        <div class="price-amount">
-                            Rp 300.000
+                    <div class="port-overlay">
+                        <div class="port-cat">
+                            Wisuda (6 Foto)
                         </div>
 
-                        <ul class="price-features">
-
-                            <li>
-                                1 Fotografer (Max 2 Jam)
-                            </li>
-
-                            <li>
-                                Free Editing Semua Foto
-                            </li>
-
-                            <li>
-                                Waktu ditentukan klien
-                            </li>
-
-                        </ul>
-
-                        <a
-                            href="https://wa.me/6287765829615"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn-outline btn">
-                            Pilih Paket
-                        </a>
-
+                        <div class="port-title">
+                            Reny Riani
+                        </div>
                     </div>
 
+                </div>
 
-                    <div class="price-card">
 
-                        <h3>Premium</h3>
+                <!-- EVENT -->
 
-                        <div class="price-amount">
-                            Rp 500.000
+                <div
+                    class="port-item event"
+                    data-title="Corporate - Jalan Santai Kemerdekaan 2025"
+                    data-images='[
+                        "https://lh3.googleusercontent.com/d/1_axQ1oATs8QwUrEDC56LEWqSs5cwa5LA",
+                        "https://lh3.googleusercontent.com/d/1rLXnbHyq6fo_bcscrBcXqjiXNjQ9dcYN",
+                        "https://lh3.googleusercontent.com/d/1zkjFPSBp0x4keMEPfFJv0tGuRjHae2GL",
+                        "https://lh3.googleusercontent.com/d/1cWtB847VpSlCIG_KqRce9I6_5ql_TU5O",
+                        "https://lh3.googleusercontent.com/d/1fT-R800YeD44qZNZnl-KKq6qPQkgs39p"
+                    ]'>
+
+                    <img
+                        src="https://lh3.googleusercontent.com/d/1_axQ1oATs8QwUrEDC56LEWqSs5cwa5LA"
+                        alt="Corporate Event"
+                        loading="lazy">
+
+                    <div class="port-overlay">
+                        <div class="port-cat">
+                            Corporate Event (5 Foto)
                         </div>
 
-                        <ul class="price-features">
-
-                            <li>
-                                1-3 Fotografer (Max 5 Jam)
-                            </li>
-
-                            <li>
-                                Free Editing Semua Foto
-                            </li>
-
-                            <li>
-                                Waktu ditentukan klien
-                            </li>
-
-                        </ul>
-
-                        <a
-                            href="https://wa.me/6287765829615"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn-outline btn">
-                            Pilih Paket
-                        </a>
-
-                    </div>
-
-
-                    <div class="price-card premium">
-
-                        <h3>Pro</h3>
-
-                        <div class="price-amount">
-                            Rp 1.000.000
+                        <div class="port-title">
+                            Jalan Santai 2025
                         </div>
-
-                        <ul class="price-features">
-
-                            <li>
-                                Tim Foto & Video (Max 10 Jam)
-                            </li>
-
-                            <li>
-                                Full Edit + Video Sinematik
-                            </li>
-
-                            <li>
-                                Waktu ditentukan klien
-                            </li>
-
-                        </ul>
-
-                        <a
-                            href="https://wa.me/6287765829615"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn-solid btn">
-                            Pilih Paket
-                        </a>
-
                     </div>
 
                 </div>
@@ -1976,210 +1162,433 @@
         </section>
 
 
-        <!-- =====================================================
+        <!-- =========================
+             PRICELIST
+        ========================= -->
+
+        <section id="pricelist">
+
+            <div class="section-header">
+
+                <span class="section-tag">
+                    03. Pricelist
+                </span>
+
+                <h2>
+                    Pilih paket<br>yang sesuai.
+                </h2>
+
+            </div>
+
+
+            <span class="section-tag price-section-title">
+                01. Paket Wedding
+            </span>
+
+            <div class="price-grid">
+
+                <div class="price-card">
+
+                    <h3>Basic</h3>
+
+                    <div class="price-amount">
+                        Rp 850.000
+                    </div>
+
+                    <ul class="price-features">
+                        <li>1-2 Fotografer Profesional</li>
+                        <li>Full Color Grading & Editing</li>
+                        <li>Durasi Fleksibel (Mengikuti Klien)</li>
+                        <li>Pengiriman via Google Drive</li>
+                    </ul>
+
+                    <a
+                        href="https://wa.me/6287765829615"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-outline">
+                        Pilih Paket
+                    </a>
+
+                </div>
+
+
+                <div class="price-card premium">
+
+                    <h3>Premium</h3>
+
+                    <div class="price-amount">
+                        Rp 1.500.000
+                    </div>
+
+                    <ul class="price-features">
+                        <li>1 Fotografer & 1 Videografer</li>
+                        <li>Edit Foto + Video Sinematik (Max 5 Menit)</li>
+                        <li>Durasi Fleksibel (Mengikuti Klien)</li>
+                        <li>Pengiriman via Google Drive</li>
+                    </ul>
+
+                    <a
+                        href="https://wa.me/6287765829615"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-solid">
+                        Pilih Paket
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <span class="section-tag price-section-title">
+                02. Paket Engagement
+            </span>
+
+            <div class="price-grid">
+
+                <div class="price-card">
+
+                    <h3>Foto Saja</h3>
+
+                    <div class="price-amount">
+                        Rp 350.000
+                    </div>
+
+                    <ul class="price-features">
+                        <li>1-2 Fotografer</li>
+                        <li>Full Editing Foto</li>
+                        <li>Durasi Fleksibel</li>
+                    </ul>
+
+                    <a
+                        href="https://wa.me/6287765829615"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-outline">
+                        Pilih Paket
+                    </a>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <h3>Video Saja</h3>
+
+                    <div class="price-amount">
+                        Rp 500.000
+                    </div>
+
+                    <ul class="price-features">
+                        <li>1 Videografer</li>
+                        <li>Video Sinematik (Max 5 Menit)</li>
+                        <li>Durasi Fleksibel</li>
+                    </ul>
+
+                    <a
+                        href="https://wa.me/6287765829615"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-outline">
+                        Pilih Paket
+                    </a>
+
+                </div>
+
+
+                <div class="price-card premium">
+
+                    <h3>Komplit</h3>
+
+                    <div class="price-amount">
+                        Rp 850.000
+                    </div>
+
+                    <ul class="price-features">
+                        <li>1 Fotografer & 1 Videografer</li>
+                        <li>Full Edit Foto + Video Sinematik</li>
+                        <li>Durasi Fleksibel</li>
+                    </ul>
+
+                    <a
+                        href="https://wa.me/6287765829615"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-solid">
+                        Pilih Paket
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <span class="section-tag price-section-title">
+                03. Paket Wisuda
+            </span>
+
+            <div class="price-grid">
+
+                <div class="price-card">
+
+                    <h3>Basic</h3>
+
+                    <div class="price-amount">
+                        Rp 300.000
+                    </div>
+
+                    <ul class="price-features">
+                        <li>1 Fotografer (Max 2 Jam)</li>
+                        <li>Free Editing Semua Foto</li>
+                        <li>Waktu ditentukan klien</li>
+                    </ul>
+
+                    <a
+                        href="https://wa.me/6287765829615"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-outline">
+                        Pilih Paket
+                    </a>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <h3>Premium</h3>
+
+                    <div class="price-amount">
+                        Rp 500.000
+                    </div>
+
+                    <ul class="price-features">
+                        <li>1-3 Fotografer (Max 5 Jam)</li>
+                        <li>Free Editing Semua Foto</li>
+                        <li>Waktu ditentukan klien</li>
+                    </ul>
+
+                    <a
+                        href="https://wa.me/6287765829615"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-outline">
+                        Pilih Paket
+                    </a>
+
+                </div>
+
+
+                <div class="price-card premium">
+
+                    <h3>Pro</h3>
+
+                    <div class="price-amount">
+                        Rp 1.000.000
+                    </div>
+
+                    <ul class="price-features">
+                        <li>Tim Foto & Video (Max 10 Jam)</li>
+                        <li>Full Edit + Video Sinematik</li>
+                        <li>Waktu ditentukan klien</li>
+                    </ul>
+
+                    <a
+                        href="https://wa.me/6287765829615"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-solid">
+                        Pilih Paket
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
              TENTANG KAMI
-        ===================================================== -->
+        ========================= -->
 
         <section id="tentang">
 
-            <div class="container">
+            <div class="section-header">
 
-                <div class="section-header">
+                <span class="section-tag">
+                    04. Tentang Kami
+                </span>
 
-                    <span class="section-tag">
-                        Tentang Kami
-                    </span>
-
-                    <h2 class="section-title">
-                        Di balik Another Visual.
-                    </h2>
-
-                </div>
-
-
-                <div class="bento-card about-layout">
-
-                    <div class="founder-text">
-
-                        <h3>
-                            PT Another Visual
-                        </h3>
-
-                        <h4>
-                            Halo semuanya
-                        </h4>
-
-                        <h4>
-                            Perkenalkan saya Alif Nur Hidayat selaku
-                            Founder dari PT Another Visual
-                        </h4>
-
-                        <p>
-                            Saya mewakili tim dan pendiri PT Another Visual
-                            ingin mengucapkan terima kasih sebesar-besarnya
-                            kepada seluruh klien, mitra, kru, dan semua pihak
-                            yang telah mempercayakan momen berharganya kepada
-                            kami.
-                        </p>
-
-                        <p>
-                            Bagi kami, PT Another Visual bukan hanya tentang
-                            foto, video, atau produksi visual. Kami percaya
-                            setiap event punya cerita, setiap momen punya
-                            makna, dan tugas kami adalah mengabadikannya
-                            dengan cara terbaik agar bisa terus dikenang.
-                        </p>
-
-                        <p>
-                            Perjalanan kami sampai hari ini tentunya tidak
-                            mudah. Namun berkat dukungan dan kepercayaan dari
-                            kalian semua, PT Another Visual terus berkembang
-                            menjadi tim kreatif yang selalu ingin memberikan
-                            hasil terbaik, profesional, dan penuh dedikasi.
-                        </p>
-
-                        <p>
-                            Dari tahap pra-produksi hingga hasil akhir yang
-                            dapat dinikmati bersama, setiap proses dikerjakan
-                            dengan dedikasi penuh. Tanpa kerja sama,
-                            konsistensi, dan semangat solid dari tim,
-                            pencapaian ini mustahil terwujud.
-                        </p>
-
-                        <p>
-                            Semoga ke depannya PT Another Visual bisa terus
-                            hadir, berkarya, dan menjadi bagian dari lebih
-                            banyak cerita luar biasa lainnya. Terima kasih
-                            sudah menjadi bagian dari perjalanan kami.
-                        </p>
-
-                        <p style="
-                            margin-top: 30px;
-                            font-weight: 600;
-                            color: #fff;
-                        ">
-                            Salam hangat,<br>
-
-                            <span style="
-                                color: var(--text-muted);
-                                font-weight: 400;
-                            ">
-                                Alif Nur Hidayat —
-                                Founder PT Another Visual
-                            </span>
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="card-image"
-                        aria-label="Foto Founder PT Another Visual">
-                    </div>
-
-                </div>
+                <h2>
+                    Mengenal<br>
+                    Another Visual.
+                </h2>
 
             </div>
 
-        </section>
 
+            <div class="bento-card about-layout">
 
-        <!-- =====================================================
-             KONTAK
-        ===================================================== -->
+                <div class="founder-text">
 
-        <section id="kontak">
+                    <h3>
+                        PT Another Visual
+                    </h3>
 
-            <div class="container">
+                    <h4>
+                        Halo semuanya
+                    </h4>
 
-                <div class="section-header">
+                    <h4>
+                        Perkenalkan saya Alif Nur Hidayat
+                        selaku Founder dari PT Another Visual
+                    </h4>
 
-                    <span class="section-tag">
-                        Kontak
-                    </span>
+                    <p>
+                        Saya mewakili tim dan pendiri PT Another Visual
+                        ingin mengucapkan terima kasih sebesar-besarnya
+                        kepada seluruh klien, mitra, kru, dan semua pihak
+                        yang telah mempercayakan momen berharganya kepada kami.
+                    </p>
 
-                    <h2 class="section-title">
-                        Mari bekerja sama.
-                    </h2>
+                    <p>
+                        Bagi kami, PT Another Visual bukan hanya tentang
+                        foto, video, atau produksi visual. Kami percaya
+                        setiap event punya cerita, setiap momen punya makna,
+                        dan tugas kami adalah mengabadikannya dengan cara
+                        terbaik agar bisa terus dikenang.
+                    </p>
 
-                    <p class="section-description">
-                        Klik salah satu kontak di bawah untuk langsung
-                        terhubung dengan PT Another Visual.
+                    <p>
+                        Perjalanan kami sampai hari ini tentunya tidak mudah.
+                        Namun berkat dukungan dan kepercayaan dari kalian semua,
+                        PT Another Visual terus berkembang menjadi tim kreatif
+                        yang selalu ingin memberikan hasil terbaik, profesional,
+                        dan penuh dedikasi.
+                    </p>
+
+                    <p>
+                        Dari tahap pra-produksi hingga hasil akhir yang dapat
+                        dinikmati bersama, setiap proses dikerjakan dengan
+                        dedikasi penuh. Tanpa kerja sama, konsistensi, dan
+                        semangat solid dari tim, pencapaian ini mustahil terwujud.
+                    </p>
+
+                    <p>
+                        Semoga ke depannya PT Another Visual bisa terus hadir,
+                        berkarya, dan menjadi bagian dari lebih banyak cerita
+                        luar biasa lainnya. Terima kasih sudah menjadi bagian
+                        dari perjalanan kami.
+                    </p>
+
+                    <p class="signature">
+                        Salam hangat,<br>
+                        <span>
+                            Alif Nur Hidayat — Founder PT Another Visual
+                        </span>
                     </p>
 
                 </div>
 
 
-                <div class="contact-grid">
-
-
-                    <!-- WHATSAPP -->
-
-                    <a
-                        class="bento-card contact-card"
-                        href="https://wa.me/6287765829615"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        <span class="section-tag">
-                            Pesan Langsung
-                        </span>
-
-                        <h4>
-                            WhatsApp
-                        </h4>
-
-                        <span>
-                            +62 877 6582 9615
-                        </span>
-
-                    </a>
-
-
-                    <!-- EMAIL -->
-
-                    <a
-                        class="bento-card contact-card"
-                        href="mailto:anothervisualjakarta@gmail.com">
-
-                        <span class="section-tag">
-                            Keperluan Bisnis
-                        </span>
-
-                        <h4>
-                            Email
-                        </h4>
-
-                        <span>
-                            anothervisualjakarta@gmail.com
-                        </span>
-
-                    </a>
-
-
-                    <!-- INSTAGRAM -->
-
-                    <a
-                        class="bento-card contact-card"
-                        href="https://instagram.com/another_visual.id"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        <span class="section-tag">
-                            Sosial Media
-                        </span>
-
-                        <h4>
-                            Instagram
-                        </h4>
-
-                        <span>
-                            @another_visual.id
-                        </span>
-
-                    </a>
-
+                <div
+                    class="card-image"
+                    style="
+                        background-image:
+                        url('https://lh3.googleusercontent.com/d/1XCVRVaa9RkMXH04tVXUSDGJZN92wRSL9');
+                    "
+                    role="img"
+                    aria-label="Founder PT Another Visual">
                 </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             KONTAK
+        ========================= -->
+
+        <section id="kontak">
+
+            <div class="section-header">
+
+                <span class="section-tag">
+                    05. Kontak
+                </span>
+
+                <h2>
+                    Mari buat<br>
+                    sesuatu bersama.
+                </h2>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+                <a
+                    href="https://wa.me/6287765829615"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bento-card contact-card">
+
+                    <span class="section-tag">
+                        Pesan Langsung
+                    </span>
+
+                    <h4>
+                        WhatsApp
+                    </h4>
+
+                    <span>
+                        +62 877 6582 9615
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="mailto:anothervisualjakarta@gmail.com"
+                    class="bento-card contact-card">
+
+                    <span class="section-tag">
+                        Keperluan Bisnis
+                    </span>
+
+                    <h4>
+                        Email
+                    </h4>
+
+                    <span>
+                        anothervisualjakarta@gmail.com
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="https://instagram.com/another_visual.id"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bento-card contact-card">
+
+                    <span class="section-tag">
+                        Sosial Media
+                    </span>
+
+                    <h4>
+                        Instagram
+                    </h4>
+
+                    <span>
+                        @another_visual.id
+                    </span>
+
+                </a>
 
             </div>
 
@@ -2188,35 +1597,25 @@
     </main>
 
 
-    <!-- =========================================================
+    <!-- =========================
          FOOTER
-    ========================================================= -->
+    ========================= -->
 
     <footer>
 
-        <div class="container">
+        <p>
+            © <span id="currentYear"></span>
+            PT Another Visual. All rights reserved.
+        </p>
 
-            <div class="footer-inner">
-
-                <div>
-                    © <span id="year"></span>
-                    PT Another Visual
-                </div>
-
-                <div>
-                    Photography • Videography • Visual Production
-                </div>
-
-            </div>
-
-        </div>
+        <span id="deviceInfo"></span>
 
     </footer>
 
 
-    <!-- =========================================================
-         SLIDER
-    ========================================================= -->
+    <!-- =========================
+         SLIDER MODAL
+    ========================= -->
 
     <div
         class="slider-modal"
@@ -2225,23 +1624,18 @@
 
         <div class="slider-content">
 
+            <div class="slider-title" id="sliderTitle"></div>
+
             <button
                 class="slider-close"
-                type="button"
-                onclick="closeSlider()"
+                id="sliderClose"
                 aria-label="Tutup">
                 ×
             </button>
 
-            <div
-                class="slider-title"
-                id="sliderTitle">
-            </div>
-
             <button
                 class="slider-prev"
-                type="button"
-                onclick="previousSlide()"
+                id="sliderPrev"
                 aria-label="Foto sebelumnya">
                 ‹
             </button>
@@ -2250,13 +1644,11 @@
                 id="sliderImage"
                 class="slider-image"
                 src=""
-                alt=""
-                draggable="false">
+                alt="Portfolio">
 
             <button
                 class="slider-next"
-                type="button"
-                onclick="nextSlide()"
+                id="sliderNext"
                 aria-label="Foto berikutnya">
                 ›
             </button>
@@ -2272,66 +1664,49 @@
     </div>
 
 
-    <!-- =========================================================
+    <!-- =========================
          JAVASCRIPT
-    ========================================================= -->
+    ========================= -->
 
     <script>
 
-        /* =====================================================
-           YEAR
-        ===================================================== */
+        /* =========================
+           CURRENT YEAR
+        ========================= */
 
-        document.getElementById("year").textContent =
+        document.getElementById("currentYear").textContent =
             new Date().getFullYear();
 
 
-        /* =====================================================
+        /* =========================
            DEVICE DETECTION
-        ===================================================== */
+        ========================= */
 
         function detectDevice() {
 
             const width = window.innerWidth;
 
-            document.body.classList.remove(
-                "device-mobile",
-                "device-tablet",
-                "device-desktop"
-            );
+            let device = "Desktop";
 
             if (width <= 600) {
-
-                document.body.classList.add(
-                    "device-mobile"
-                );
-
+                device = "Mobile";
             } else if (width <= 1024) {
-
-                document.body.classList.add(
-                    "device-tablet"
-                );
-
-            } else {
-
-                document.body.classList.add(
-                    "device-desktop"
-                );
-
+                device = "Tablet";
             }
+
+            document.body.dataset.device = device.toLowerCase();
+
+            return device;
         }
 
         detectDevice();
 
-        window.addEventListener(
-            "resize",
-            detectDevice
-        );
+        window.addEventListener("resize", detectDevice);
 
 
-        /* =====================================================
+        /* =========================
            MOBILE MENU
-        ===================================================== */
+        ========================= */
 
         const menuToggle =
             document.getElementById("menuToggle");
@@ -2339,146 +1714,115 @@
         const navMenu =
             document.getElementById("navMenu");
 
-        menuToggle.addEventListener(
-            "click",
-            function () {
+        menuToggle.addEventListener("click", function () {
 
-                const isOpen =
-                    navMenu.classList.toggle("open");
+            const isOpen =
+                navMenu.classList.toggle("show");
 
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    isOpen ? "true" : "false"
-                );
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
 
-            }
-        );
+        });
 
 
-        document.querySelectorAll(".nav-link")
-            .forEach(function (link) {
+        /* Tutup menu setelah klik */
 
-                link.addEventListener(
-                    "click",
-                    function () {
+        document.querySelectorAll(".nav-menu a")
+            .forEach(function(link) {
 
-                        navMenu.classList.remove("open");
+                link.addEventListener("click", function() {
 
-                        menuToggle.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
+                    navMenu.classList.remove("show");
 
-                    }
-                );
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                });
 
             });
 
 
-        /* =====================================================
+        /* =========================
            ACTIVE NAVIGATION
-        ===================================================== */
+        ========================= */
 
         const sections =
             document.querySelectorAll("main section");
 
         const navLinks =
-            document.querySelectorAll(".nav-link");
+            document.querySelectorAll(".nav-menu a");
 
         const observer =
             new IntersectionObserver(
-                function (entries) {
+                function(entries) {
 
-                    entries.forEach(
-                        function (entry) {
+                    entries.forEach(function(entry) {
 
-                            if (entry.isIntersecting) {
+                        if (entry.isIntersecting) {
 
-                                navLinks.forEach(
-                                    function (link) {
+                            navLinks.forEach(function(link) {
+                                link.classList.remove("active");
+                            });
 
-                                        link.classList.remove(
-                                            "active"
-                                        );
-
-                                        if (
-                                            link.getAttribute(
-                                                "href"
-                                            ) ===
-                                            "#" + entry.target.id
-                                        ) {
-
-                                            link.classList.add(
-                                                "active"
-                                            );
-
-                                        }
-
-                                    }
+                            const activeLink =
+                                document.querySelector(
+                                    '.nav-menu a[href="#' +
+                                    entry.target.id +
+                                    '"]'
                                 );
 
+                            if (activeLink) {
+                                activeLink.classList.add("active");
                             }
 
                         }
-                    );
+
+                    });
 
                 },
                 {
-                    rootMargin:
-                        "-30% 0px -60% 0px"
+                    rootMargin: "-35% 0px -55% 0px"
                 }
             );
 
-        sections.forEach(
-            function (section) {
-                observer.observe(section);
-            }
-        );
+        sections.forEach(function(section) {
+            observer.observe(section);
+        });
 
 
-        /* =====================================================
+        /* =========================
            PORTFOLIO FILTER
-        ===================================================== */
+        ========================= */
 
-        function filterItems(category) {
+        const filterButtons =
+            document.querySelectorAll(".folder-btn");
 
-            const buttons =
-                document.querySelectorAll(".folder-btn");
-
-            const items =
-                document.querySelectorAll(".port-item");
-
-            buttons.forEach(
-                function (button) {
-
-                    button.classList.remove("active");
-
-                    const buttonCategory =
-                        button
-                            .getAttribute("onclick")
-                            .match(
-                                /filterItems\('([^']+)'\)/
-                            );
-
-                    if (
-                        buttonCategory &&
-                        buttonCategory[1] === category
-                    ) {
-
-                        button.classList.add("active");
-
-                    }
-
-                }
-            );
+        const portfolioItems =
+            document.querySelectorAll(".port-item");
 
 
-            items.forEach(
-                function (item) {
+        filterButtons.forEach(function(button) {
+
+            button.addEventListener("click", function() {
+
+                const filter =
+                    button.dataset.filter;
+
+                filterButtons.forEach(function(btn) {
+                    btn.classList.remove("active");
+                });
+
+                button.classList.add("active");
+
+                portfolioItems.forEach(function(item) {
 
                     if (
-                        category === "all" ||
-                        item.classList.contains(category)
+                        filter === "all" ||
+                        item.classList.contains(filter)
                     ) {
 
                         item.classList.remove("hidden");
@@ -2489,21 +1833,16 @@
 
                     }
 
-                }
-            );
+                });
 
-        }
+            });
+
+        });
 
 
-        /* =====================================================
-           SLIDER VARIABLES
-        ===================================================== */
-
-        let sliderImages = [];
-
-        let sliderIndex = 0;
-
-        let sliderName = "";
+        /* =========================
+           SLIDER
+        ========================= */
 
         const sliderModal =
             document.getElementById("sliderModal");
@@ -2517,155 +1856,187 @@
         const sliderCounter =
             document.getElementById("sliderCounter");
 
+        const sliderClose =
+            document.getElementById("sliderClose");
 
-        /* =====================================================
-           OPEN SLIDER
-        ===================================================== */
+        const sliderPrev =
+            document.getElementById("sliderPrev");
+
+        const sliderNext =
+            document.getElementById("sliderNext");
+
+
+        let currentImages = [];
+        let currentIndex = 0;
+
 
         function openSlider(images, title) {
 
-            if (
-                !Array.isArray(images) ||
-                images.length === 0
-            ) {
+            if (!Array.isArray(images) || images.length === 0) {
                 return;
             }
 
-            sliderImages = images;
+            currentImages = images;
+            currentIndex = 0;
 
-            sliderIndex = 0;
-
-            sliderName = title || "";
+            sliderTitle.textContent = title || "";
 
             sliderModal.classList.add("active");
+            sliderModal.setAttribute("aria-hidden", "false");
 
-            sliderModal.setAttribute(
-                "aria-hidden",
-                "false"
-            );
-
-            document.body.classList.add(
-                "no-scroll"
-            );
+            document.body.classList.add("no-scroll");
 
             updateSlider();
 
         }
 
 
-        /* =====================================================
-           UPDATE SLIDER
-        ===================================================== */
-
         function updateSlider() {
 
-            if (!sliderImages.length) {
+            if (!currentImages.length) {
                 return;
             }
 
             sliderImage.src =
-                sliderImages[sliderIndex];
-
-            sliderImage.alt =
-                sliderName +
-                " - Foto " +
-                (sliderIndex + 1);
-
-            sliderTitle.textContent =
-                sliderName;
+                currentImages[currentIndex];
 
             sliderCounter.textContent =
-                (sliderIndex + 1) +
+                (currentIndex + 1) +
                 " / " +
-                sliderImages.length;
+                currentImages.length;
 
         }
 
-
-        /* =====================================================
-           NEXT
-        ===================================================== */
 
         function nextSlide() {
 
-            if (!sliderImages.length) {
+            if (!currentImages.length) {
                 return;
             }
 
-            sliderIndex =
-                (sliderIndex + 1) %
-                sliderImages.length;
+            currentIndex =
+                (currentIndex + 1) %
+                currentImages.length;
 
             updateSlider();
 
         }
 
 
-        /* =====================================================
-           PREVIOUS
-        ===================================================== */
+        function prevSlide() {
 
-        function previousSlide() {
-
-            if (!sliderImages.length) {
+            if (!currentImages.length) {
                 return;
             }
 
-            sliderIndex =
-                (
-                    sliderIndex -
-                    1 +
-                    sliderImages.length
-                ) %
-                sliderImages.length;
+            currentIndex =
+                (currentIndex - 1 +
+                currentImages.length) %
+                currentImages.length;
 
             updateSlider();
 
         }
 
-
-        /* =====================================================
-           CLOSE
-        ===================================================== */
 
         function closeSlider() {
 
-            sliderModal.classList.remove(
-                "active"
-            );
+            sliderModal.classList.remove("active");
 
             sliderModal.setAttribute(
                 "aria-hidden",
                 "true"
             );
 
-            document.body.classList.remove(
-                "no-scroll"
-            );
+            document.body.classList.remove("no-scroll");
 
             sliderImage.src = "";
+
+            currentImages = [];
+            currentIndex = 0;
 
         }
 
 
-        /* =====================================================
-           KEYBOARD CONTROL
-        ===================================================== */
+        sliderNext.addEventListener(
+            "click",
+            nextSlide
+        );
+
+        sliderPrev.addEventListener(
+            "click",
+            prevSlide
+        );
+
+        sliderClose.addEventListener(
+            "click",
+            closeSlider
+        );
+
+
+        /* Klik area gelap untuk menutup */
+
+        sliderModal.addEventListener(
+            "click",
+            function(event) {
+
+                if (event.target === sliderModal) {
+                    closeSlider();
+                }
+
+            }
+        );
+
+
+        /* =========================
+           PORTFOLIO CLICK
+        ========================= */
+
+        portfolioItems.forEach(function(item) {
+
+            item.addEventListener(
+                "click",
+                function() {
+
+                    try {
+
+                        const images =
+                            JSON.parse(
+                                item.dataset.images
+                            );
+
+                        openSlider(
+                            images,
+                            item.dataset.title
+                        );
+
+                    } catch (error) {
+
+                        console.error(
+                            "Portfolio error:",
+                            error
+                        );
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        /* =========================
+           KEYBOARD SLIDER
+        ========================= */
 
         document.addEventListener(
             "keydown",
-            function (event) {
+            function(event) {
 
                 if (
-                    !sliderModal.classList.contains(
-                        "active"
-                    )
+                    !sliderModal.classList.contains("active")
                 ) {
                     return;
-                }
-
-                if (event.key === "Escape") {
-                    closeSlider();
                 }
 
                 if (event.key === "ArrowRight") {
@@ -2673,146 +2044,112 @@
                 }
 
                 if (event.key === "ArrowLeft") {
-                    previousSlide();
+                    prevSlide();
                 }
 
-            }
-        );
-
-
-        /* =====================================================
-           CLICK BACKDROP TO CLOSE
-        ===================================================== */
-
-        sliderModal.addEventListener(
-            "click",
-            function (event) {
-
-                if (
-                    event.target === sliderModal ||
-                    event.target.classList.contains(
-                        "slider-content"
-                    )
-                ) {
-
+                if (event.key === "Escape") {
                     closeSlider();
-
                 }
 
             }
         );
 
 
-        /* =====================================================
-           SWIPE SUPPORT - HP
-        ===================================================== */
+        /* =========================
+           SWIPE SLIDER MOBILE
+        ========================= */
 
         let touchStartX = 0;
-        let touchStartY = 0;
+        let touchEndX = 0;
+
 
         sliderModal.addEventListener(
             "touchstart",
-            function (event) {
-
-                if (!event.touches.length) {
-                    return;
-                }
+            function(event) {
 
                 touchStartX =
-                    event.touches[0].clientX;
-
-                touchStartY =
-                    event.touches[0].clientY;
+                    event.changedTouches[0].screenX;
 
             },
-            {
-                passive: true
-            }
+            { passive: true }
         );
 
 
         sliderModal.addEventListener(
             "touchend",
-            function (event) {
+            function(event) {
 
-                if (!event.changedTouches.length) {
-                    return;
-                }
+                touchEndX =
+                    event.changedTouches[0].screenX;
 
-                const touchEndX =
-                    event.changedTouches[0].clientX;
-
-                const touchEndY =
-                    event.changedTouches[0].clientY;
-
-                const diffX =
-                    touchEndX - touchStartX;
-
-                const diffY =
-                    touchEndY - touchStartY;
-
-
-                /* Hanya dianggap swipe
-                   kalau gerakan horizontal
-                   lebih besar dari vertikal */
-
-                if (
-                    Math.abs(diffX) > 50 &&
-                    Math.abs(diffX) >
-                    Math.abs(diffY)
-                ) {
-
-                    if (diffX < 0) {
-
-                        nextSlide();
-
-                    } else {
-
-                        previousSlide();
-
-                    }
-
-                }
+                handleSwipe();
 
             },
-            {
-                passive: true
+            { passive: true }
+        );
+
+
+        function handleSwipe() {
+
+            const difference =
+                touchEndX - touchStartX;
+
+            if (Math.abs(difference) < 50) {
+                return;
+            }
+
+            if (difference < 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+
+        }
+
+
+        /* =========================
+           IMAGE PROTECTION
+        ========================= */
+
+        document.addEventListener(
+            "contextmenu",
+            function(event) {
+
+                if (
+                    event.target.tagName === "IMG" ||
+                    event.target.classList.contains("card-image")
+                ) {
+                    event.preventDefault();
+                }
+
             }
         );
 
 
-        /* =====================================================
-           PREVENT IMAGE DRAG
-        ===================================================== */
-
         document.addEventListener(
             "dragstart",
-            function (event) {
+            function(event) {
 
                 if (
                     event.target.tagName === "IMG"
                 ) {
-
                     event.preventDefault();
-
                 }
 
             }
         );
 
 
-        /* =====================================================
-           PREVENT RIGHT CLICK
-        ===================================================== */
-
         document.addEventListener(
-            "contextmenu",
-            function (event) {
+            "keydown",
+            function(event) {
+
+                const key =
+                    event.key.toLowerCase();
 
                 if (
-                    event.target.tagName === "IMG" ||
-                    event.target.closest(".card-image") ||
-                    event.target.closest(".port-item")
+                    (event.ctrlKey || event.metaKey) &&
+                    ["s", "u", "c"].includes(key)
                 ) {
 
                     event.preventDefault();
@@ -2821,73 +2158,6 @@
 
             }
         );
-
-
-        /* =====================================================
-           PREVENT COPY ON IMAGES
-        ===================================================== */
-
-        document.addEventListener(
-            "copy",
-            function (event) {
-
-                if (
-                    window.getSelection &&
-                    window.getSelection().anchorNode
-                ) {
-
-                    const node =
-                        window.getSelection().anchorNode;
-
-                    if (
-                        node &&
-                        node.parentElement &&
-                        (
-                            node.parentElement.closest(
-                                ".port-item"
-                            ) ||
-                            node.parentElement.closest(
-                                ".card-image"
-                            )
-                        )
-                    ) {
-
-                        event.preventDefault();
-
-                    }
-
-                }
-
-            }
-        );
-
-
-        /* =====================================================
-           PREVENT LONG PRESS IMAGE
-        ===================================================== */
-
-        document.querySelectorAll("img")
-            .forEach(
-                function (image) {
-
-                    image.setAttribute(
-                        "draggable",
-                        "false"
-                    );
-
-                    image.addEventListener(
-                        "mousedown",
-                        function (event) {
-
-                            if (event.button === 2) {
-                                event.preventDefault();
-                            }
-
-                        }
-                    );
-
-                }
-            );
 
     </script>
 
