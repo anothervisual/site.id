@@ -1220,7 +1220,7 @@
 
                 <div
                     class="port-item event"
-                    data-title="Corporate - Jalan Santai Kemerdekaan 2025"
+                    data-title="Jalan Santai Kemerdekaan 2025"
                     data-images='[
                         "https://lh3.googleusercontent.com/d/1_axQ1oATs8QwUrEDC56LEWqSs5cwa5LA",
                         "https://lh3.googleusercontent.com/d/1rLXnbHyq6fo_bcscrBcXqjiXNjQ9dcYN",
@@ -1231,12 +1231,12 @@
 
                     <img
                         src="https://lh3.googleusercontent.com/d/1_axQ1oATs8QwUrEDC56LEWqSs5cwa5LA"
-                        alt="Corporate Event"
+                        alt="Event"
                         loading="lazy">
 
                     <div class="port-overlay">
                         <div class="port-cat">
-                            Corporate Event (5 Foto)
+                            Event (5 Foto)
                         </div>
 
                         <div class="port-title">
