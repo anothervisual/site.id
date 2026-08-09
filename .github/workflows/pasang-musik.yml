@@ -1,0 +1,97 @@
+name: Pasang Musik Website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  music:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Pasang lagu.mp3 ke halaman website
+        shell: bash
+        run: |
+          set -e
+
+          # Cari file HTML utama. Jika belum ada, gunakan README.md sebagai sumber HTML.
+          if [ -f "index.html" ]; then
+            TARGET="index.html"
+          else
+            TARGET=$(find . -maxdepth 2 -type f \( -name '*.html' -o -name '*.htm' \) -not -path './.git/*' | head -n 1 || true)
+            if [ -z "$TARGET" ] && [ -f "README.md" ]; then
+              cp README.md index.html
+              TARGET="index.html"
+            fi
+          fi
+
+          if [ -z "$TARGET" ]; then
+            echo "Tidak menemukan file HTML website."
+            exit 1
+          fi
+
+          if [ ! -f "lagu.mp3" ]; then
+            echo "lagu.mp3 tidak ditemukan di root repository."
+            exit 1
+          fi
+
+          # Jangan pasang dua kali.
+          if grep -q 'id="backgroundMusic"' "$TARGET"; then
+            echo "Musik sudah terpasang."
+            exit 0
+          fi
+
+          python3 - "$TARGET" <<'PY'
+          import sys
+          from pathlib import Path
+
+          target = Path(sys.argv[1])
+          text = target.read_text(encoding='utf-8')
+
+          music = '''
+          <!-- BACKGROUND MUSIC -->
+          <audio id="backgroundMusic" autoplay loop preload="auto" playsinline>
+              <source src="lagu.mp3" type="audio/mpeg">
+          </audio>
+          <script>
+          (function () {
+              const music = document.getElementById('backgroundMusic');
+              if (!music) return;
+              music.volume = 0.55;
+
+              // Browser dapat memblokir autoplay bersuara.
+              // Jika diblokir, musik akan mulai saat pengunjung pertama kali berinteraksi.
+              const startMusic = () => {
+                  music.play().catch(() => {});
+              };
+
+              startMusic();
+              ['click', 'touchstart', 'keydown', 'pointerdown'].forEach(event => {
+                  document.addEventListener(event, startMusic, { once: true, passive: true });
+              });
+          })();
+          </script>
+          <!-- END BACKGROUND MUSIC -->
+          '''
+
+          marker = '</body>'
+          if marker in text.lower():
+              idx = text.lower().rfind(marker)
+              text = text[:idx] + music + '\n' + text[idx:]
+          else:
+              text += '\n' + music + '\n'
+
+          target.write_text(text, encoding='utf-8')
+          PY
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$TARGET"
+          git commit -m "Add background music lagu.mp3" || exit 0
+          git push
