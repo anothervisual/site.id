@@ -376,6 +376,92 @@
            PRICE
         ========================= */
 
+        /* Netflix-inspired pricelist */
+        #pricelist {
+            background: #050505;
+        }
+
+        #pricelist .price-card {
+            background: linear-gradient(145deg, #181818 0%, #0d0d0d 100%);
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            box-shadow: 0 12px 35px rgba(0,0,0,.35);
+            position: relative;
+            overflow: hidden;
+            transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+        }
+
+        #pricelist .price-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #e50914;
+        }
+
+        #pricelist .price-card:hover {
+            transform: translateY(-5px);
+            border-color: #e50914;
+            box-shadow: 0 18px 45px rgba(229,9,20,.18);
+        }
+
+        #pricelist .price-card h3 {
+            color: #fff;
+        }
+
+        #pricelist .price-amount {
+            color: #fff;
+        }
+
+        #pricelist .price-features {
+            color: #b3b3b3;
+        }
+
+        #pricelist .price-features li::marker {
+            color: #e50914;
+        }
+
+        #pricelist .btn-outline {
+            color: #fff;
+            border-color: #555;
+            background: #181818;
+        }
+
+        #pricelist .btn-outline:hover {
+            background: #e50914;
+            border-color: #e50914;
+            color: #fff;
+        }
+
+        #pricelist .btn-solid {
+            background: #e50914;
+            border-color: #e50914;
+            color: #fff;
+        }
+
+        #pricelist .btn-solid:hover {
+            background: #f40612;
+            border-color: #f40612;
+        }
+
+        #pricelist .price-card.premium {
+            background: linear-gradient(145deg, #202020 0%, #0d0d0d 100%);
+            color: #fff;
+            border-color: #e50914;
+        }
+
+        #pricelist .price-card.premium .price-features {
+            color: #d0d0d0;
+        }
+
+        #pricelist .price-card.premium .btn-solid {
+            background: #e50914;
+        }
+
+
+
         .price-section-title {
             display: block;
             margin: 55px 0 20px;
@@ -862,6 +948,8 @@
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#filosofi">Filosofi</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#video">Video</a></li>
+                    <li><a href="#video-pensi">Pensi</a></li>
                     <li><a href="#pricelist">Pricelist</a></li>
                     <li><a href="#tentang">Tentang Kami</a></li>
                     <li><a href="#kontak">Kontak</a></li>
@@ -1163,6 +1251,100 @@
         </section>
 
 
+
+        <!-- =========================
+             VIDEO
+        ========================= -->
+
+        <section id="video">
+
+            <div class="section-header">
+
+                <span class="section-tag">
+                    03. Video
+                </span>
+
+                <h2>
+                    Teaser<br>TOCUP31.
+                </h2>
+
+                <p>
+                    Saksikan teaser video terbaru dari Another Visual.
+                </p>
+
+            </div>
+
+            <div class="bento-card" style="padding: 18px;">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                    style="
+                        width: 100%;
+                        display: block;
+                        border-radius: 14px;
+                        background: #000;
+                    "
+                    aria-label="Teaser TOCUP31">
+                    <source
+                        src="video/TEASER%20TOCUP31.mp4"
+                        type="video/mp4">
+                    Browser Anda tidak mendukung pemutaran video.
+                </video>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             VIDEO PENSI SEKOLAH
+        ========================= -->
+
+        <section id="video-pensi">
+
+            <div class="section-header">
+
+                <span class="section-tag">
+                    03. Video
+                </span>
+
+                <h2>
+                    Pensi Sekolah<br>Pertiwi Abhilasa.
+                </h2>
+
+                <p>
+                    Dokumentasi video Pensi Sekolah Pertiwi Abhilasa.
+                </p>
+
+            </div>
+
+            <div class="bento-card" style="padding: 18px;">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                    style="
+                        width: 100%;
+                        display: block;
+                        border-radius: 14px;
+                        background: #000;
+                    "
+                    aria-label="Pensi Sekolah Pertiwi Abhilasa">
+                    <source
+                        src="video/PensI%20Sekolah%20Pertiwi%20Abhilasa.mp4"
+                        type="video/mp4">
+                    Browser Anda tidak mendukung pemutaran video.
+                </video>
+
+            </div>
+
+        </section>
+
+
         <!-- =========================
              PRICELIST
         ========================= -->
@@ -1172,7 +1354,7 @@
             <div class="section-header">
 
                 <span class="section-tag">
-                    03. Pricelist
+                    05. Pricelist
                 </span>
 
                 <h2>
@@ -1419,7 +1601,7 @@
             <div class="section-header">
 
                 <span class="section-tag">
-                    04. Tentang Kami
+                    06. Tentang Kami
                 </span>
 
                 <h2>
@@ -1518,7 +1700,7 @@
             <div class="section-header">
 
                 <span class="section-tag">
-                    05. Kontak
+                    07. Kontak
                 </span>
 
                 <h2>
