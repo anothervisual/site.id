@@ -12,34 +12,25 @@ html,body{margin:0;min-height:100%;background:#080808;color:#fff}#loading{min-he
 <div id="loading">Memuat Another Visual…</div>
 <script>
 (async function(){
-  try {
-    const response = await fetch('https://raw.githubusercontent.com/anothervisual/site.id/main/README.md', {cache:'no-store'});
-    if (!response.ok) throw new Error('README tidak dapat dimuat');
-    let html = await response.text();
-
-    /* Video paths */
-    html = html.replaceAll('video/TEASER%20TOCUP31.mp4','video/EVENT/TEASER%20TOCUP31.mp4');
-    html = html.replaceAll('video/TEASER TOCUP31.mp4','video/EVENT/TEASER%20TOCUP31.mp4');
-    html = html.replaceAll('video/Putra%20Sekolah%20Pertiwi%20Abhilsa%20%281%29.mov','video/PUTRA/Putra%20Sekolah%20Pertiwi%20Abhilsa%20%281%29.mov');
-    html = html.replaceAll('video/Putra Sekolah Pertiwi Abhilsa (1).mov','video/PUTRA/Putra%20Sekolah%20Pertiwi%20Abhilsa%20%281%29.mov');
-
-    /* Professional video layout without changing portfolio information */
-    const extraStyle = `
-<style id="professional-video-layout">
-video{display:block;max-width:100%;}
-video, .video-container, .video-card, .portfolio-video{border-radius:16px;}
-video{width:100%;height:auto;max-height:78vh;object-fit:contain;background:#000;box-shadow:0 18px 50px rgba(0,0,0,.35);}
-@media(min-width:900px){video{min-height:360px;}}
+  try{
+    const response=await fetch('https://raw.githubusercontent.com/anothervisual/site.id/main/README.md',{cache:'no-store'});
+    if(!response.ok)throw new Error('README tidak dapat dimuat');
+    let html=await response.text();
+    html=html.replaceAll('video/TEASER%20TOCUP31.mp4','video/EVENT/TEASER%20TOCUP31.mp4');
+    html=html.replaceAll('video/TEASER TOCUP31.mp4','video/EVENT/TEASER%20TOCUP31.mp4');
+    html=html.replaceAll('video/Putra%20Sekolah%20Pertiwi%20Abhilsa%20%281%29.mov','video/PUTRA/Putra%20Sekolah%20Pertiwi%20Abhilsa%20%281%29.mov');
+    html=html.replaceAll('video/Putra Sekolah Pertiwi Abhilsa (1).mov','video/PUTRA/Putra%20Sekolah%20Pertiwi%20Abhilsa%20%281%29.mov');
+    const extraStyle=`<style id="professional-video-layout">
+video{display:block;max-width:100%;width:100%;height:auto;max-height:78vh;object-fit:contain;background:#000;border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.video-container,.video-card,.portfolio-video{border-radius:16px}
+/* Dua video satu baris */
+.video-grid,.videos-grid,.video-gallery{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start;width:100%}
+.video-grid>*:only-child,.videos-grid>*:only-child,.video-gallery>*:only-child{grid-column:1/-1}
+@media(max-width:800px){.video-grid,.videos-grid,.video-gallery{grid-template-columns:1fr;gap:18px}}
 </style>`;
-    html = html.replace('</head>', extraStyle + '</head>');
-
-    document.open();
-    document.write(html);
-    document.close();
-  } catch (error) {
-    document.getElementById('loading').innerHTML = 'Website gagal dimuat. Silakan refresh halaman.';
-    console.error(error);
-  }
+    html=html.replace('</head>',extraStyle+'</head>');
+    document.open();document.write(html);document.close();
+  }catch(error){document.getElementById('loading').innerHTML='Website gagal dimuat. Silakan refresh halaman.';console.error(error)}
 })();
 </script>
 </body>
